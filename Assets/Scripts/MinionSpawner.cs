@@ -13,7 +13,7 @@ public class MinionSpawner : MonoBehaviour
     public float SpawnCooldown = 10f;
     void Start()
     {
-        Time.timeScale = 30;
+        //Time.timeScale = 30;
         active = true;
         StartCoroutine(spawner());
     }
@@ -25,7 +25,7 @@ public class MinionSpawner : MonoBehaviour
             go.transform.position = this.transform.position;
 
             if (Time.time < 500)
-                SpawnCooldown = ((-.0001f * Time.time * Time.time) + 60f);
+                SpawnCooldown = ((-.0001f * Time.time * Time.time) + 30f);
             else if(Time.time < 1750)
                 SpawnCooldown = ((.00002f * (Time.time - 1800f) * (Time.time - 1800f) + 3f));
             
