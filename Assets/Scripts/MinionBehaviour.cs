@@ -9,6 +9,7 @@ public class MinionBehaviour : MonoBehaviour
     private GameObject PlayerTower;
     private GameObject EnemyTower;
     private Vector3 targetTower;
+    private bool attacking;
     Tower twr;
     private UnityEngine.AI.NavMeshAgent nav;
     // Use this for initialization
@@ -21,7 +22,7 @@ public class MinionBehaviour : MonoBehaviour
         minion = ScriptableObject.CreateInstance<Minion>();
         twr = ScriptableObject.CreateInstance<Tower>();
         twr.health = 1000;
-
+        attacking = false;
     }
     void Start()
     {
@@ -55,9 +56,10 @@ public class MinionBehaviour : MonoBehaviour
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
             nav.SetDestination(targetTower);
 
-        if(Vector3.Distance(this.transform.position,targetTower)<3)
+        if(Vector3.Distance(this.transform.position,targetTower)<3 && attacking == false)
         {
             StartCoroutine(minion.Attack(twr));
+            attacking = true;
         }
     }
 }
