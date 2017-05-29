@@ -97,7 +97,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.11
     agentHeight: 2.58
-    agentSlope: 39.2
+    agentSlope: 28.1
     agentClimb: 1.76
     ledgeDropHeight: 1.02
     maxJumpAcrossDistance: 3.81
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 319486635}
   m_Layer: 0
   m_Name: Enemy Tower
-  m_TagString: Untagged
+  m_TagString: Enemy Tower
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 1379296387}
   m_Layer: 0
   m_Name: Player Tower
-  m_TagString: Untagged
+  m_TagString: Player Tower
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

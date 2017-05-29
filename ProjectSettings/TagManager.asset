@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeftBridge
   - RightBridge
+  - Player Tower
+  - Enemy Tower
   layers:
   - Default
   - TransparentFX
