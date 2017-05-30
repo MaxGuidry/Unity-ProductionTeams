@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 87fcbea7318517d40b9274973c027714
+timeCreated: 1496176587
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Controllers
+    100004: Head
+    100006: Head 1
+    100008: Head 2
+    100010: HeadController
+    100012: L_Ankle
+    100014: L_ArmCtl
+    100016: L_Clavicle
+    100018: L_Elbow
+    100020: L_ElbowController
+    100022: L_Fist
+    100024: L_FootController
+    100026: L_HandController
+    100028: L_Hip
+    100030: L_Knee
+    100032: L_LegController
+    100034: L_LegCtl
+    100036: L_Shoulder
+    100038: L_ShoulderController
+    100040: L_Toes
+    100042: L_Wrist
+    100044: LeftArm
+    100046: LeftElbow
+    100048: LeftEye
+    100050: LeftFist
+    100052: LeftFoot
+    100054: LeftKnee
+    100056: LeftLeg
+    100058: LeftShoulder
+    100060: Minion1
+    100062: R_Ankle
+    100064: R_ArmCtl
+    100066: R_Clavicle
+    100068: R_Controller
+    100070: R_Elbow
+    100072: R_Fist
+    100074: R_FootController
+    100076: R_HandController
+    100078: R_Hip
+    100080: R_Knee
+    100082: R_LegController
+    100084: R_LegCtl
+    100086: R_Shoulder
+    100088: R_ShoulderController
+    100090: R_Toes
+    100092: R_Wrist
+    100094: Rig
+    100096: RightArm
+    100098: RightElbow
+    100100: RightEye
+    100102: RightFist
+    100104: RightFoot
+    100106: RightKnee
+    100108: RightLeg
+    100110: RightShoulder
+    100112: Spine
+    100114: Waist
+    100116: WaistController
+    100118: WaistRock
+    100120: WorldController
+    400000: //RootNode
+    400002: Controllers
+    400004: Head
+    400006: Head 1
+    400008: Head 2
+    400010: HeadController
+    400012: L_Ankle
+    400014: L_ArmCtl
+    400016: L_Clavicle
+    400018: L_Elbow
+    400020: L_ElbowController
+    400022: L_Fist
+    400024: L_FootController
+    400026: L_HandController
+    400028: L_Hip
+    400030: L_Knee
+    400032: L_LegController
+    400034: L_LegCtl
+    400036: L_Shoulder
+    400038: L_ShoulderController
+    400040: L_Toes
+    400042: L_Wrist
+    400044: LeftArm
+    400046: LeftElbow
+    400048: LeftEye
+    400050: LeftFist
+    400052: LeftFoot
+    400054: LeftKnee
+    400056: LeftLeg
+    400058: LeftShoulder
+    400060: Minion1
+    400062: R_Ankle
+    400064: R_ArmCtl
+    400066: R_Clavicle
+    400068: R_Controller
+    400070: R_Elbow
+    400072: R_Fist
+    400074: R_FootController
+    400076: R_HandController
+    400078: R_Hip
+    400080: R_Knee
+    400082: R_LegController
+    400084: R_LegCtl
+    400086: R_Shoulder
+    400088: R_ShoulderController
+    400090: R_Toes
+    400092: R_Wrist
+    400094: Rig
+    400096: RightArm
+    400098: RightElbow
+    400100: RightEye
+    400102: RightFist
+    400104: RightFoot
+    400106: RightKnee
+    400108: RightLeg
+    400110: RightShoulder
+    400112: Spine
+    400114: Waist
+    400116: WaistController
+    400118: WaistRock
+    400120: WorldController
+    4300000: WaistRock
+    4300002: Head
+    4300004: LeftEye
+    4300006: RightEye
+    4300008: LeftElbow
+    4300010: LeftShoulder
+    4300012: LeftFist
+    4300014: LeftFoot
+    4300016: LeftKnee
+    4300018: RightFoot
+    4300020: RightKnee
+    4300022: RightShoulder
+    4300024: RightFist
+    4300026: RightElbow
+    9500000: //RootNode
+    13700000: Head 1
+    13700002: LeftElbow
+    13700004: LeftEye
+    13700006: LeftFist
+    13700008: LeftFoot
+    13700010: LeftKnee
+    13700012: LeftShoulder
+    13700014: RightElbow
+    13700016: RightEye
+    13700018: RightFist
+    13700020: RightFoot
+    13700022: RightKnee
+    13700024: RightShoulder
+    13700026: WaistRock
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
