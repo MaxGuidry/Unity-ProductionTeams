@@ -1,132 +1,124 @@
 fileFormatVersion: 2
-guid: 9a097c0ee46234746bc9034f60b7965e
-timeCreated: 1496179500
+guid: ad0510d0ce8ec4b44b86b223589b9c2c
+timeCreated: 1496179506
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: Head
     100002: Head 1
-    100004: Head 2
-    100006: HeadController
-    100008: L_Ankle
-    100010: L_ArmCtl
-    100012: L_Clavicle
-    100014: L_Elbow
-    100016: L_ElbowController
-    100018: L_Fist
-    100020: L_FootController
-    100022: L_HandController
-    100024: L_Hip
-    100026: L_Knee
-    100028: L_LegController
-    100030: L_LegCtl
-    100032: L_Shoulder
-    100034: L_ShoulderController
-    100036: L_Toes
-    100038: L_Wrist
-    100040: LeftArm
-    100042: LeftElbow
-    100044: LeftEye
-    100046: LeftFist
-    100048: LeftFoot
-    100050: LeftKnee
-    100052: LeftLeg
-    100054: LeftShoulder
-    100056: R_Ankle
-    100058: R_ArmCtl
-    100060: R_Clavicle
-    100062: R_Controller
-    100064: R_Elbow
-    100066: R_Fist
-    100068: R_FootController
-    100070: R_HandController
-    100072: R_Hip
-    100074: R_Knee
-    100076: R_LegController
-    100078: R_LegCtl
-    100080: R_Shoulder
-    100082: R_ShoulderController
-    100084: R_Toes
-    100086: R_Wrist
-    100088: REDControllers
-    100090: REDMinion
-    100092: REDRig
-    100094: //RootNode
-    100096: RightArm
-    100098: RightElbow
-    100100: RightEye
-    100102: RightFist
-    100104: RightFoot
-    100106: RightKnee
-    100108: RightLeg
-    100110: RightShoulder
-    100112: Spine
-    100114: Waist
-    100116: WaistController
-    100118: WaistRock
-    100120: WorldController
+    100004: LeftArm
+    100006: LeftElbow
+    100008: LeftEye
+    100010: LeftFist
+    100012: LeftFoot
+    100014: LeftKnee
+    100016: LeftLeg
+    100018: LeftShoulder
+    100020: REDMinion
+    100022: //RootNode
+    100024: RightArm
+    100026: RightElbow
+    100028: RightEye
+    100030: RightFist
+    100032: RightFoot
+    100034: RightKnee
+    100036: RightLeg
+    100038: RightShoulder
+    100040: WaistRock
+    100042: Head 2
+    100044: L_Ankle
+    100046: L_Clavicle
+    100048: L_Elbow
+    100050: L_Fist
+    100052: L_Hip
+    100054: L_Knee
+    100056: L_Shoulder
+    100058: L_Toes
+    100060: L_Wrist
+    100062: R_Ankle
+    100064: R_Clavicle
+    100066: R_Elbow
+    100068: R_Fist
+    100070: R_Hip
+    100072: R_Knee
+    100074: R_Shoulder
+    100076: R_Toes
+    100078: R_Wrist
+    100080: REDRig
+    100082: Spine
+    100084: Waist
     400000: Head
     400002: Head 1
-    400004: Head 2
-    400006: HeadController
-    400008: L_Ankle
-    400010: L_ArmCtl
-    400012: L_Clavicle
-    400014: L_Elbow
-    400016: L_ElbowController
-    400018: L_Fist
-    400020: L_FootController
-    400022: L_HandController
-    400024: L_Hip
-    400026: L_Knee
-    400028: L_LegController
-    400030: L_LegCtl
-    400032: L_Shoulder
-    400034: L_ShoulderController
-    400036: L_Toes
-    400038: L_Wrist
-    400040: LeftArm
-    400042: LeftElbow
-    400044: LeftEye
-    400046: LeftFist
-    400048: LeftFoot
-    400050: LeftKnee
-    400052: LeftLeg
-    400054: LeftShoulder
-    400056: R_Ankle
-    400058: R_ArmCtl
-    400060: R_Clavicle
-    400062: R_Controller
-    400064: R_Elbow
-    400066: R_Fist
-    400068: R_FootController
-    400070: R_HandController
-    400072: R_Hip
-    400074: R_Knee
-    400076: R_LegController
-    400078: R_LegCtl
-    400080: R_Shoulder
-    400082: R_ShoulderController
-    400084: R_Toes
-    400086: R_Wrist
-    400088: REDControllers
-    400090: REDMinion
-    400092: REDRig
-    400094: //RootNode
-    400096: RightArm
-    400098: RightElbow
-    400100: RightEye
-    400102: RightFist
-    400104: RightFoot
-    400106: RightKnee
-    400108: RightLeg
-    400110: RightShoulder
-    400112: Spine
-    400114: Waist
-    400116: WaistController
-    400118: WaistRock
-    400120: WorldController
+    400004: LeftArm
+    400006: LeftElbow
+    400008: LeftEye
+    400010: LeftFist
+    400012: LeftFoot
+    400014: LeftKnee
+    400016: LeftLeg
+    400018: LeftShoulder
+    400020: REDMinion
+    400022: //RootNode
+    400024: RightArm
+    400026: RightElbow
+    400028: RightEye
+    400030: RightFist
+    400032: RightFoot
+    400034: RightKnee
+    400036: RightLeg
+    400038: RightShoulder
+    400040: WaistRock
+    400042: Head 2
+    400044: L_Ankle
+    400046: L_Clavicle
+    400048: L_Elbow
+    400050: L_Fist
+    400052: L_Hip
+    400054: L_Knee
+    400056: L_Shoulder
+    400058: L_Toes
+    400060: L_Wrist
+    400062: R_Ankle
+    400064: R_Clavicle
+    400066: R_Elbow
+    400068: R_Fist
+    400070: R_Hip
+    400072: R_Knee
+    400074: R_Shoulder
+    400076: R_Toes
+    400078: R_Wrist
+    400080: REDRig
+    400082: Spine
+    400084: Waist
+    2300000: Head 1
+    2300002: LeftElbow
+    2300004: LeftEye
+    2300006: LeftFist
+    2300008: LeftFoot
+    2300010: LeftKnee
+    2300012: LeftShoulder
+    2300014: RightElbow
+    2300016: RightEye
+    2300018: RightFist
+    2300020: RightFoot
+    2300022: RightKnee
+    2300024: RightShoulder
+    2300026: WaistRock
+    3300000: Head 1
+    3300002: LeftElbow
+    3300004: LeftEye
+    3300006: LeftFist
+    3300008: LeftFoot
+    3300010: LeftKnee
+    3300012: LeftShoulder
+    3300014: RightElbow
+    3300016: RightEye
+    3300018: RightFist
+    3300020: RightFoot
+    3300022: RightKnee
+    3300024: RightShoulder
+    3300026: WaistRock
     4300000: WaistRock
     4300002: Head
     4300004: LeftEye
@@ -141,7 +133,7 @@ ModelImporter:
     4300022: RightShoulder
     4300024: RightFist
     4300026: RightElbow
-    7400000: Run
+    7400000: Test
     9500000: //RootNode
     13700000: Head 1
     13700002: LeftElbow
@@ -163,7 +155,7 @@ ModelImporter:
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
-    bakeSimulation: 1
+    bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
@@ -181,17 +173,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run
+      name: Test
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 23
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -206,42 +198,6 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
-        weight: 1
-      - path: REDControllers
-        weight: 1
-      - path: REDControllers/HeadController
-        weight: 1
-      - path: REDControllers/L_ArmCtl
-        weight: 1
-      - path: REDControllers/L_ArmCtl/L_ElbowController
-        weight: 1
-      - path: REDControllers/L_ArmCtl/L_HandController
-        weight: 1
-      - path: REDControllers/L_ArmCtl/L_ShoulderController
-        weight: 1
-      - path: REDControllers/L_LegCtl
-        weight: 1
-      - path: REDControllers/L_LegCtl/L_FootController
-        weight: 1
-      - path: REDControllers/L_LegCtl/L_LegController
-        weight: 1
-      - path: REDControllers/R_ArmCtl
-        weight: 1
-      - path: REDControllers/R_ArmCtl/R_Controller
-        weight: 1
-      - path: REDControllers/R_ArmCtl/R_HandController
-        weight: 1
-      - path: REDControllers/R_ArmCtl/R_ShoulderController
-        weight: 1
-      - path: REDControllers/R_LegCtl
-        weight: 1
-      - path: REDControllers/R_LegCtl/R_FootController
-        weight: 1
-      - path: REDControllers/R_LegCtl/R_LegController
-        weight: 1
-      - path: REDControllers/WaistController
-        weight: 1
-      - path: REDControllers/WorldController
         weight: 1
       - path: REDMinion
         weight: 1
@@ -352,7 +308,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

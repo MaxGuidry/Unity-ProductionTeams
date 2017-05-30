@@ -141,7 +141,7 @@ ModelImporter:
     4300022: RightShoulder
     4300024: RightFist
     4300026: RightElbow
-    7400000: Take 001
+    7400000: blue run
     9500000: //RootNode
     13700000: Head 1
     13700002: LeftElbow
@@ -163,7 +163,7 @@ ModelImporter:
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
-    bakeSimulation: 0
+    bakeSimulation: 1
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
@@ -179,7 +179,157 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: blue run
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Controllers
+        weight: 1
+      - path: Controllers/HeadController
+        weight: 1
+      - path: Controllers/L_ArmCtl
+        weight: 1
+      - path: Controllers/L_ArmCtl/L_ElbowController
+        weight: 1
+      - path: Controllers/L_ArmCtl/L_HandController
+        weight: 1
+      - path: Controllers/L_ArmCtl/L_ShoulderController
+        weight: 1
+      - path: Controllers/L_LegCtl
+        weight: 1
+      - path: Controllers/L_LegCtl/L_FootController
+        weight: 1
+      - path: Controllers/L_LegCtl/L_LegController
+        weight: 1
+      - path: Controllers/R_ArmCtl
+        weight: 1
+      - path: Controllers/R_ArmCtl/R_Controller
+        weight: 1
+      - path: Controllers/R_ArmCtl/R_HandController
+        weight: 1
+      - path: Controllers/R_ArmCtl/R_ShoulderController
+        weight: 1
+      - path: Controllers/R_LegCtl
+        weight: 1
+      - path: Controllers/R_LegCtl/R_FootController
+        weight: 1
+      - path: Controllers/R_LegCtl/R_LegController
+        weight: 1
+      - path: Controllers/WaistController
+        weight: 1
+      - path: Controllers/WorldController
+        weight: 1
+      - path: Minion1
+        weight: 1
+      - path: Minion1/Head
+        weight: 1
+      - path: Minion1/Head/Head 1
+        weight: 1
+      - path: Minion1/Head/Head 1/LeftEye
+        weight: 1
+      - path: Minion1/Head/Head 1/RightEye
+        weight: 1
+      - path: Minion1/LeftArm
+        weight: 1
+      - path: Minion1/LeftArm/LeftElbow
+        weight: 1
+      - path: Minion1/LeftArm/LeftFist
+        weight: 1
+      - path: Minion1/LeftArm/LeftShoulder
+        weight: 1
+      - path: Minion1/LeftLeg
+        weight: 1
+      - path: Minion1/LeftLeg/LeftFoot
+        weight: 1
+      - path: Minion1/LeftLeg/LeftKnee
+        weight: 1
+      - path: Minion1/RightArm
+        weight: 1
+      - path: Minion1/RightArm/RightElbow
+        weight: 1
+      - path: Minion1/RightArm/RightFist
+        weight: 1
+      - path: Minion1/RightArm/RightShoulder
+        weight: 1
+      - path: Minion1/RightLeg
+        weight: 1
+      - path: Minion1/RightLeg/RightFoot
+        weight: 1
+      - path: Minion1/RightLeg/RightKnee
+        weight: 1
+      - path: Minion1/WaistRock
+        weight: 1
+      - path: Rig
+        weight: 1
+      - path: Rig/Waist
+        weight: 1
+      - path: Rig/Waist/L_Hip
+        weight: 1
+      - path: Rig/Waist/L_Hip/L_Knee
+        weight: 1
+      - path: Rig/Waist/L_Hip/L_Knee/L_Ankle
+        weight: 1
+      - path: Rig/Waist/L_Hip/L_Knee/L_Ankle/L_Toes
+        weight: 1
+      - path: Rig/Waist/R_Hip
+        weight: 1
+      - path: Rig/Waist/R_Hip/R_Knee
+        weight: 1
+      - path: Rig/Waist/R_Hip/R_Knee/R_Ankle
+        weight: 1
+      - path: Rig/Waist/R_Hip/R_Knee/R_Ankle/R_Toes
+        weight: 1
+      - path: Rig/Waist/Spine
+        weight: 1
+      - path: Rig/Waist/Spine/Head 2
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder/L_Elbow/L_Wrist/L_Fist
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder/R_Elbow/R_Wrist/R_Fist
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

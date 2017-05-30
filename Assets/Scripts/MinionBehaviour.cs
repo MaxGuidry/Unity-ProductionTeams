@@ -8,6 +8,7 @@ public class MinionBehaviour : MonoBehaviour
     public Minion minion;
     private GameObject PlayerTower;
     private GameObject EnemyTower;
+    private Animation test;
     private Vector3 targetTower;
     private bool attacking;
     public Tower twr;
@@ -19,6 +20,8 @@ public class MinionBehaviour : MonoBehaviour
     }
     void Awake()
     {
+    //    test = GetComponent<Animation>();
+    //    test.Play();
         minion = ScriptableObject.CreateInstance<Minion>();
 
         attacking = false;
