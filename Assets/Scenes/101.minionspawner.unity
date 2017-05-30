@@ -187,6 +187,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 319486635}
+  - component: {fileID: 319486636}
   m_Layer: 0
   m_Name: Enemy Tower
   m_TagString: Enemy Tower
@@ -207,6 +208,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &319486636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319486634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d537e7df7124e84babd5e3ef43d1bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!1 &398151488
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +282,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -399,7 +412,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.41
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -410,7 +423,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -543,6 +556,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1379296387}
+  - component: {fileID: 1379296388}
   m_Layer: 0
   m_Name: Player Tower
   m_TagString: Player Tower
@@ -563,6 +577,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1379296388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1379296386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d537e7df7124e84babd5e3ef43d1bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!1 &1422891512
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +745,10 @@ Prefab:
     - target: {fileID: 400004, guid: 71a7385d928aea541a3268a05f804922, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 71a7385d928aea541a3268a05f804922, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71a7385d928aea541a3268a05f804922, type: 3}
