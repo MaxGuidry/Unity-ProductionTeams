@@ -10,7 +10,7 @@ public class MinionBehaviour : MonoBehaviour
     private GameObject EnemyTower;
     private Vector3 targetTower;
     private bool attacking;
-    Tower twr;
+    public Tower twr;
     private UnityEngine.AI.NavMeshAgent nav;
     // Use this for initialization
     void OnEnable()
@@ -20,8 +20,7 @@ public class MinionBehaviour : MonoBehaviour
     void Awake()
     {
         minion = ScriptableObject.CreateInstance<Minion>();
-        twr = ScriptableObject.CreateInstance<Tower>();
-        twr.health = 1000;
+
         attacking = false;
     }
     void Start()
@@ -34,14 +33,17 @@ public class MinionBehaviour : MonoBehaviour
         if (Vector3.Distance(this.transform.position, PlayerTower.transform.position) < Vector3.Distance(this.transform.position, EnemyTower.transform.position))
         {
             targetTower = EnemyTower.transform.position;
+            twr = EnemyTower.GetComponent<TowerBehaviour>().tower;
+            
             minion.minionType = Minion.MinionType.PLAYER;
         }
         else
         {
             targetTower = PlayerTower.transform.position;
+            twr = PlayerTower.GetComponent<TowerBehaviour>().tower;
             minion.minionType = Minion.MinionType.ENEMY;
         }
-            if (this.gameObject.transform.position.z < 0)
+        if (this.gameObject.transform.position.z < 0)
         {
             nav.SetDestination(GameObject.FindGameObjectWithTag("LeftBridge").transform.position);
         }
@@ -56,7 +58,7 @@ public class MinionBehaviour : MonoBehaviour
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
             nav.SetDestination(targetTower);
 
-        if(Vector3.Distance(this.transform.position,targetTower)<3 && attacking == false)
+        if (Vector3.Distance(this.transform.position, targetTower) < 3 && attacking == false)
         {
             StartCoroutine(minion.Attack(twr));
             attacking = true;

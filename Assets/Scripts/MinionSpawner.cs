@@ -13,7 +13,7 @@ public class MinionSpawner : MonoBehaviour
     public float SpawnCooldown = 10f;
     void Start()
     {
-        //Time.timeScale = 20;
+        Time.timeScale = 10;
         active = true;
         StartCoroutine(spawner());
     }
@@ -31,7 +31,6 @@ public class MinionSpawner : MonoBehaviour
 
             if (Time.time < 200)
             {
-                active = false;
                 min.health = 100;
                 min.damage = 5;
                 SpawnCooldown = 20;
