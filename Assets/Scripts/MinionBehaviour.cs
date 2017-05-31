@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MinionBehaviour : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public Minion minion;
+    public Animator anim;
     private GameObject PlayerTower;
     private GameObject EnemyTower;
-    private Animation test;
     private Vector3 targetTower;
     private bool attacking;
     public Tower twr;
@@ -20,8 +20,8 @@ public class MinionBehaviour : MonoBehaviour
     }
     void Awake()
     {
-    //    test = GetComponent<Animation>();
-    //    test.Play();
+
+        anim = GetComponent<Animator>();
         minion = ScriptableObject.CreateInstance<Minion>();
 
         attacking = false;
@@ -58,12 +58,15 @@ public class MinionBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //bad fix later
+        anim.SetFloat("health", minion.health);
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
             nav.SetDestination(targetTower);
 
         if (Vector3.Distance(this.transform.position, targetTower) < 3 && attacking == false)
         {
             StartCoroutine(minion.Attack(twr));
+            anim.SetTrigger("attack");
             attacking = true;
         }
     }

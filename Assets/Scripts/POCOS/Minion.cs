@@ -15,10 +15,11 @@ public class Minion : ScriptableObject
     public MinionType minionType; 
     public IEnumerator Attack(Tower target)
     {
+        
         while (true)
         {
             target.health -= damage;
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(.6f);
         }
     }
 }
