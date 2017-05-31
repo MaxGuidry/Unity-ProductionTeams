@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnTriggerShoot : MonoBehaviour
 {
-    public GameObject Plane;
+  
     public GameObject ammo;
     public GameObject spawner;
   
@@ -25,7 +25,7 @@ public class OnTriggerShoot : MonoBehaviour
         {
             Shoot();
         }
-        if (other.tag == "Player")
+        if (other.tag == "Minion")
             Shoot();
         print("Encounterd");
 
@@ -33,7 +33,7 @@ public class OnTriggerShoot : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.tag == "Minion")
                 Shoot();
             Debug.Log("Encounterd");
 
