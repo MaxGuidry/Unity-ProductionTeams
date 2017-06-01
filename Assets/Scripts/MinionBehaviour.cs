@@ -22,7 +22,8 @@ public class MinionBehaviour : MonoBehaviour
     {
 
         anim = GetComponent<Animator>();
-        minion = ScriptableObject.CreateInstance<Minion>();
+        if (minion == null)
+            minion = ScriptableObject.CreateInstance<Minion>();
 
         attacking = false;
     }
@@ -37,7 +38,7 @@ public class MinionBehaviour : MonoBehaviour
         {
             targetTower = EnemyTower.transform.position;
             twr = EnemyTower.GetComponent<TowerBehaviour>().tower;
-            
+
             minion.minionType = Minion.MinionType.PLAYER;
         }
         else
@@ -58,7 +59,7 @@ public class MinionBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
         //bad fix later
         anim.SetFloat("health", minion.health);
