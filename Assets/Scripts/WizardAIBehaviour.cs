@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -71,7 +72,7 @@ public class WizardAIBehaviour : MonoBehaviour
 
             foreach (var minion in minions)
             {
-                MinionThreat mt = new MinionThreat();
+                MinionThreat mt = ScriptableObject.CreateInstance<MinionThreat>();
                 mt.threat =  (int)(1000f * GetThreat(minion, healthAVG, dmgAVG));
                 mt.go = minion;
                 minionThreats.Add(mt);
@@ -96,9 +97,17 @@ public class WizardAIBehaviour : MonoBehaviour
         //copy list 2 times one for health and one for damage
         //sort both then calculate average for both
         //find biggest outliers then sort by the outlier value somehow
+
         var minionThreats = MinionThreat.CalculateThreats(objectsICareAbout);
+        List<int> threatlevels = new List<int>();
+        foreach (var minionThreat in minionThreats)
+        {
+            threatlevels.Add(minionThreat.threat);
+        }
+        threatlevels.Sort();
         objectsICareAbout.Clear();
-        minionThreats.Sort((x,y) => y.threat);
+
+        minionThreats = minionThreats.OrderByDescending((x) => x.threat).ToList();
         foreach (var minionThreat in minionThreats)
         {
             objectsICareAbout.Add(minionThreat.go);
