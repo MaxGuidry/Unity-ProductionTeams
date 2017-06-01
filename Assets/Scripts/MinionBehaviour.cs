@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class MinionBehaviour : MonoBehaviour
 {
     //[HideInInspector]
@@ -28,7 +28,7 @@ public class MinionBehaviour : MonoBehaviour
     }
     void Start()
     {
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        nav = GetComponent<NavMeshAgent>();
         nav.Warp(this.transform.position);
         PlayerTower = GameObject.FindGameObjectWithTag("Player Tower");
         EnemyTower = GameObject.FindGameObjectWithTag("Enemy Tower");
@@ -58,6 +58,8 @@ public class MinionBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         //bad fix later
         anim.SetFloat("health", minion.health);
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
@@ -68,6 +70,14 @@ public class MinionBehaviour : MonoBehaviour
             StartCoroutine(minion.Attack(twr));
             anim.SetTrigger("attack");
             attacking = true;
+        }
+        if (minion.health <= 0)
+        {
+            GameObject.Destroy(GetComponent<NavMeshAgent>());
+            this.gameObject.AddComponent<DestroyForTesting>().time = 2;
+            GameObject.Destroy(GetComponent<MinionBehaviour>());
+
+
         }
     }
 }

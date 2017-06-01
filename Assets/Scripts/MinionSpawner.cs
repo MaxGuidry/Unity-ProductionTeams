@@ -62,6 +62,12 @@ public class MinionSpawner : MonoBehaviour
                 min.damage = 30;
                 SpawnCooldown = 7;
             }
+            else
+            {
+                min.health = 300;
+                min.damage = 40;
+                SpawnCooldown = 5;
+            }
             yield return new WaitForSeconds(SpawnCooldown);
         }
     }
