@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Security.Policy;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class WizardAIBehaviour : MonoBehaviour
@@ -12,9 +13,13 @@ public class WizardAIBehaviour : MonoBehaviour
     private GameObject targetGameObject;
     [SerializeField]
     private List<GameObject> objectsICareAbout;
+
+    private NavMeshAgent agent;
     private bool targeting;
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = true;
         targeting = false;
         objectsICareAbout = new List<GameObject>();
         StartCoroutine(Look());
@@ -91,42 +96,25 @@ public class WizardAIBehaviour : MonoBehaviour
 
     }
 
-    [ContextMenu("Sort")]
     void SortByImportance()
     {
-        //copy list 2 times one for health and one for damage
-        //sort both then calculate average for both
-        //find biggest outliers then sort by the outlier value somehow
-
         var minionThreats = MinionThreat.CalculateThreats(objectsICareAbout);
-        List<int> threatlevels = new List<int>();
-        foreach (var minionThreat in minionThreats)
-        {
-            threatlevels.Add(minionThreat.threat);
-        }
-        threatlevels.Sort();
         objectsICareAbout.Clear();
-
         minionThreats = minionThreats.OrderByDescending((x) => x.threat).ToList();
         foreach (var minionThreat in minionThreats)
         {
             objectsICareAbout.Add(minionThreat.go);
         }
-        //var healthList = new List<GameObject>(objectsICareAbout);
-        //var damageList = new List<GameObject>(objectsICareAbout);
-        //healthList.Sort((x, y) => (x.GetComponent<MinionBehaviour>().minion.health));
-        //float healthAVG = 0f;
-        //foreach (var o in healthList)
-        //{
-        //    healthAVG += o.GetComponent<MinionBehaviour>().minion.health;
-        //}
-        //healthAVG = healthAVG / healthList.Count;
-        //List<float> outlierHealthValues = new List<float>();
-        //foreach (var o in healthList)
-        //{
-        //    outlierHealthValues.Add((o.GetComponent<MinionBehaviour>().minion.health - healthAVG) / healthAVG);
-        //}
+        if(!targeting)
+            Target(objectsICareAbout[0]);
 
-        //damageList.Sort((x, y) => (x.GetComponent<MinionBehaviour>().minion.damage));
+       
     }
+
+    void Target(GameObject go)
+    {
+        agent.SetDestination(go.transform.position);
+        agent.stoppingDistance = 3f;
+    }
+
 }

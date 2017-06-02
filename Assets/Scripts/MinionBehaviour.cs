@@ -60,6 +60,7 @@ public class MinionBehaviour : MonoBehaviour
     void Update()
     {
 
+        nav.isStopped = true;
 
         //bad fix later
         anim.SetFloat("health", minion.health);
