@@ -23,4 +23,9 @@ public class Minion : ScriptableObject
             yield return new WaitForSeconds(.6f);
         }
     }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+    }
 }
