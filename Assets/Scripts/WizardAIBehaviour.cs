@@ -29,8 +29,6 @@ public class WizardAIBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(this.transform.position, this.transform.forward * 3f);
-
     }
 
     private IEnumerator Look()
@@ -38,7 +36,7 @@ public class WizardAIBehaviour : MonoBehaviour
         var mask = 1 << 3;
         while (true)
         {
-            var hits = Physics.SphereCastAll(new Ray(this.transform.position - this.transform.forward * 2, this.transform.forward), 3, 10).ToList();
+            var hits = Physics.SphereCastAll(new Ray(this.transform.position - this.transform.forward * 2, this.transform.forward), 3, 20).ToList();
             foreach (var hit in hits)
             {
                 if (hit.transform != null)
@@ -78,7 +76,7 @@ public class WizardAIBehaviour : MonoBehaviour
             foreach (var minion in minions)
             {
                 MinionThreat mt = ScriptableObject.CreateInstance<MinionThreat>();
-                mt.threat =  (int)(1000f * GetThreat(minion, healthAVG, dmgAVG));
+                mt.threat = (int)(1000f * GetThreat(minion, healthAVG, dmgAVG));
                 mt.go = minion;
                 minionThreats.Add(mt);
             }
@@ -105,14 +103,15 @@ public class WizardAIBehaviour : MonoBehaviour
         {
             objectsICareAbout.Add(minionThreat.go);
         }
-        if(!targeting)
+        if (!targeting && objectsICareAbout.Count > 0)
             Target(objectsICareAbout[0]);
 
-       
+
     }
 
     void Target(GameObject go)
     {
+        agent.isStopped = false;
         agent.SetDestination(go.transform.position);
         agent.stoppingDistance = 3f;
     }

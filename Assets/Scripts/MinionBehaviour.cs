@@ -60,14 +60,13 @@ public class MinionBehaviour : MonoBehaviour
     void Update()
     {
 
-        nav.isStopped = true;
 
         //bad fix later
         anim.SetFloat("health", minion.health);
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
             nav.SetDestination(targetTower);
 
-        if (Vector3.Distance(this.transform.position, targetTower) < 3 && attacking == false)
+        if (Vector3.Distance(this.transform.position, targetTower) < 5 && attacking == false)
         {
             StartCoroutine(minion.Attack(twr));
             anim.SetTrigger("attack");
