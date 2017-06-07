@@ -80,4 +80,9 @@ public class MinionBehaviour : MonoBehaviour
 
         }
     }
+    public void Attack()
+    {
+        minion.Attack(twr);
+    }
+
 }
