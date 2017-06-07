@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 96079637}
   - component: {fileID: 96079636}
   - component: {fileID: 96079641}
+  - component: {fileID: 96079642}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -257,6 +258,20 @@ NavMeshAgent:
   m_BaseOffset: 0.43
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &96079642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 96079635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97a060b867d4784480f8a32d67aaf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ammo: {fileID: 1533650020548128, guid: 8f12abcb510d795479ccea0355b5bc57, type: 2}
+  Spawner: {fileID: 96079635}
+  Speed: 25
 --- !u!1 &260781836
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +950,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258926097}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.5740821
@@ -1411,6 +1426,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: b8537737f34d6d047928104b16b973db,
         type: 2}
+    - target: {fileID: 136832755774251568, guid: 450e3cba1ac126e4a8997ace8e89b557,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 450e3cba1ac126e4a8997ace8e89b557, type: 2}
   m_IsPrefabParent: 0
