@@ -20,6 +20,7 @@ public class WizardAIBehaviour : MonoBehaviour
 
     private void Start()
     {
+        wizard = ScriptableObject.CreateInstance<Wizard>();
         attacking = false;
         agent = GetComponent<NavMeshAgent>();
         //agent.isStopped = true;
@@ -32,6 +33,45 @@ public class WizardAIBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (targetGameObject != null)
+        {
+            float angle =
+                Vector3.Angle(
+                    (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+                     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
+                    this.transform.forward);
+            float actualangle = Vector3.Dot(
+                (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+                 new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
+                this.transform.forward);
+           Vector3 test =  (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+                new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized;
+            //Vector3 test = (targetGameObject.transform.position - this.transform.position).normalized;
+
+            Vector3 right = new Quaternion(0, Mathf.Sin(angle) / 2f, 0, Mathf.Cos(angle) / 2f) * this.transform.forward;
+            Debug.Log(angle);
+            if (angle > 5f)
+            {
+                //Debug.Log(Vector3.Dot(test,right.normalized));
+                if (Vector3.Dot(test, right.normalized) > .85)
+                    this.transform.rotation = this.transform.rotation *
+                                              new Quaternion(0, Mathf.Sin(.01f) / 2f, 0,
+                                                  Mathf.Cos(.01f) / 2f);
+                else
+                    this.transform.rotation = this.transform.rotation *
+                                              new Quaternion(0, Mathf.Sin(-.01f) / 2f, 0,
+                                                  Mathf.Cos(-.01f) / 2f);
+                Debug.Log(Vector3.Angle(
+                    (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+                     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
+                    this.transform.forward));
+            }
+        }
+        if (targetGameObject != null && Vector3.Distance(transform.position, targetGameObject.transform.position) > agent.stoppingDistance && targeting)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(targetGameObject.transform.position);
+        }
         if (targeting && targetGameObject != null && !attacking)
         {
             attacking = true;
@@ -44,14 +84,18 @@ public class WizardAIBehaviour : MonoBehaviour
     }
     private IEnumerator Attack()
     {
-        Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
-        wizard.Attack(m);
-        if(targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
+        while (true)
         {
-            StopCoroutine(Attack());
-            StartCoroutine(Look());
+            Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
+            wizard.Attack(m);
+            if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
+            {
+                StopCoroutine(Attack());
+                targeting = false;
+                StartCoroutine(Look());
+            }
+            yield return new WaitForSeconds(wizard.attackCooldown);
         }
-        yield return new WaitForSeconds(wizard.attackCooldown);
     }
 
     private IEnumerator Look()
@@ -68,25 +112,19 @@ public class WizardAIBehaviour : MonoBehaviour
                                               Mathf.Cos((float)i / 180f * Mathf.PI) / 2f);
                 hits.AddRange(Physics
                     .SphereCastAll(
-                        new Ray(rayOrigin.position -(this.gameObject.transform.forward * 2f), this.gameObject.transform.forward), 1, 20).ToList());
+                        new Ray(rayOrigin.position - (this.gameObject.transform.forward * 2f), this.gameObject.transform.forward), 1, 20).ToList());
             }
             this.transform.rotation = originrot;
-            //Physics.SphereCastAll(new Ray(this.transform.position - this.transform.forward * 2, this.transform.forward), 3, 20).ToList();
-            //hits.AddRange(Physics
-            //    .SphereCastAll(new Ray(this.transform.position - this.transform.right * 2, this.transform.right), 3, 20)
-            //    .ToList());
-            //hits.AddRange(Physics.SphereCastAll(new Ray(this.transform.position - this.transform.right * -2, this.transform.right * -1), 3, 20).ToList());
-            //hits.AddRange(Physics.SphereCastAll(new Ray(this.transform.position, new Quaternion(0, Mathf.Sin((45f / 180f) * Mathf.PI), 0, Mathf.Cos((45f / 180f) * Mathf.PI)) * this.transform.forward), 3, 20).ToList());
+
 
             foreach (var hit in hits)
                 if (hit.transform != null)
-                {   
+                {
                     var v = hit.transform.gameObject.GetComponent<MinionBehaviour>();
 
-                    if (!objectsICareAbout.Contains(hit.transform.gameObject) && v != null)
+                    if (!objectsICareAbout.Contains(hit.transform.gameObject) && v != null && v.minion.minionType == Minion.MinionType.PLAYER)
                     {
                         objectsICareAbout.Add(hit.transform.gameObject);
-                        Debug.Log(hit.transform.gameObject);
                     }
                 }
             SortByImportance();
@@ -102,7 +140,15 @@ public class WizardAIBehaviour : MonoBehaviour
         foreach (var minionThreat in minionThreats)
             objectsICareAbout.Add(minionThreat.go);
         if (!targeting && objectsICareAbout.Count > 0)
+        {
+            foreach (var o in objectsICareAbout)
+            {
+                var v = o.GetComponent<MinionBehaviour>().minion;
+                if (v.health <= 0)
+                    objectsICareAbout.Remove(o);
+            }
             Target(objectsICareAbout[0]);
+        }
     }
 
     private void Target(GameObject go)

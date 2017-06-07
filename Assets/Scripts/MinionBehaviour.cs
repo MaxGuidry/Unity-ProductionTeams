@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 public class MinionBehaviour : MonoBehaviour
 {
     //[HideInInspector]
+    public Material BlueMaterial;
+    public Material RedMaterial;
     public Minion minion;
     public Animator anim;
     private GameObject PlayerTower;
@@ -54,6 +57,27 @@ public class MinionBehaviour : MonoBehaviour
         else
             nav.SetDestination(GameObject.FindGameObjectWithTag("RightBridge").transform.position);
 
+        switch ( minion.minionType)
+        {
+            case Minion.MinionType.ENEMY:
+            {
+                var v = this.gameObject.GetComponentsInChildren<Renderer>().ToList();
+                foreach (var renderer in v)
+                {
+                    renderer.material = RedMaterial;
+                }
+                break;
+            }
+
+            case Minion.MinionType.PLAYER:{
+                var v = this.gameObject.GetComponentsInChildren<Renderer>().ToList();
+                foreach (var renderer in v)
+                {
+                    renderer.material = BlueMaterial;
+                }
+                break;
+            }
+        }
     }
 
     // Update is called once per frame

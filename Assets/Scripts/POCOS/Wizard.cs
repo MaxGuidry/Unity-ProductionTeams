@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Wizard : ScriptableObject
 {
 
-    public int damage = 5;
+    public int damage = 10;
     public float attackCooldown = 2f;
     public void Attack(Minion minion)
     {
