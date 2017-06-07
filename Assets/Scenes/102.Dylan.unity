@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a309621a068eb94409386671cd26fe0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireBall: {fileID: 1436201345848942, guid: 98ccea27832a52140a4a8e2e539c7897, type: 2}
+  FireBall: {fileID: 0}
 --- !u!1 &1379296386
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,9 +988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97a060b867d4784480f8a32d67aaf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ammo: {fileID: 1436201345848942, guid: 98ccea27832a52140a4a8e2e539c7897, type: 2}
-  Spawner: {fileID: 1859095374}
-  Speed: 2
+  Ammo: {fileID: 0}
+  Spawner: {fileID: 0}
+  Speed: 0
 --- !u!114 &1859095376
 MonoBehaviour:
   m_ObjectHideFlags: 0
