@@ -7,7 +7,7 @@ public class FireBallDamage : MonoBehaviour
     public GameObject FireBall;
     private void DamageMinion(Collider other)
     {
-        if(FireBall.transform.position =)
+        //if(FireBall.transform.position =)
             GetComponent<MinionBehaviour>().minion.health = 0;
         if (other.tag == "Minion")
             GetComponent<MinionBehaviour>().minion.health = 0;
