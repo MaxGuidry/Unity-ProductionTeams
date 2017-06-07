@@ -68,7 +68,6 @@ public class MinionBehaviour : MonoBehaviour
 
         if (Vector3.Distance(this.transform.position, targetTower) < 5 && attacking == false)
         {
-            StartCoroutine(minion.Attack(twr));
             anim.SetTrigger("attack");
             attacking = true;
         }

@@ -13,7 +13,7 @@ public class WizardAIBehaviour : MonoBehaviour
     [SerializeField]
     private List<GameObject> objectsICareAbout;
 
-    private GameObject targetGameObject;
+    public GameObject targetGameObject;
     private bool targeting;
 
     private Wizard wizard;
@@ -22,7 +22,7 @@ public class WizardAIBehaviour : MonoBehaviour
     {
         attacking = false;
         agent = GetComponent<NavMeshAgent>();
-        agent.isStopped = true;
+        //agent.isStopped = true;
         targeting = false;
         objectsICareAbout = new List<GameObject>();
         StartCoroutine(Look());
@@ -38,10 +38,19 @@ public class WizardAIBehaviour : MonoBehaviour
             StartCoroutine(Attack());
         }
     }
+    private void Patrol()
+    {
 
+    }
     private IEnumerator Attack()
     {
-        wizard.Attack(targetGameObject.GetComponent<MinionBehaviour>().minion);
+        Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
+        wizard.Attack(m);
+        if(targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
+        {
+            StopCoroutine(Attack());
+            StartCoroutine(Look());
+        }
         yield return new WaitForSeconds(wizard.attackCooldown);
     }
 
@@ -55,11 +64,11 @@ public class WizardAIBehaviour : MonoBehaviour
             for (var i = 0f; i < 360; i += 2f)
             {
                 this.transform.rotation = this.transform.rotation * new Quaternion(0,
-                                              Mathf.Sin(i / 180f * Mathf.PI) / 2, 0,
-                                              Mathf.Cos(i / 180f * Mathf.PI) / 2);
+                                              Mathf.Sin((float)i / 180f * Mathf.PI) / 2f, 0,
+                                              Mathf.Cos((float)i / 180f * Mathf.PI) / 2f);
                 hits.AddRange(Physics
                     .SphereCastAll(
-                        new Ray(rayOrigin.position - rayOrigin.forward * 2, rayOrigin.forward), 1, 20).ToList());
+                        new Ray(rayOrigin.position -(this.gameObject.transform.forward * 2f), this.gameObject.transform.forward), 1, 20).ToList());
             }
             this.transform.rotation = originrot;
             //Physics.SphereCastAll(new Ray(this.transform.position - this.transform.forward * 2, this.transform.forward), 3, 20).ToList();
@@ -71,11 +80,14 @@ public class WizardAIBehaviour : MonoBehaviour
 
             foreach (var hit in hits)
                 if (hit.transform != null)
-                {
+                {   
                     var v = hit.transform.gameObject.GetComponent<MinionBehaviour>();
 
                     if (!objectsICareAbout.Contains(hit.transform.gameObject) && v != null)
+                    {
                         objectsICareAbout.Add(hit.transform.gameObject);
+                        Debug.Log(hit.transform.gameObject);
+                    }
                 }
             SortByImportance();
             yield return new WaitForSeconds(1);
@@ -95,10 +107,12 @@ public class WizardAIBehaviour : MonoBehaviour
 
     private void Target(GameObject go)
     {
+        targetGameObject = go;
         targeting = true;
-        agent.isStopped = false;
+        //agent.isStopped = false;
         agent.SetDestination(go.transform.position);
         agent.stoppingDistance = 3f;
+        StopCoroutine(Look());
     }
 
     private class MinionThreat : Minion

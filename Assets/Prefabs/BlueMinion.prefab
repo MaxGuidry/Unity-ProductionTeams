@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 95328810498608852}
   - component: {fileID: 195210340260026528}
   - component: {fileID: 114094368232271678}
+  - component: {fileID: 136832755774251568}
   m_Layer: 0
   m_Name: BlueMinion
   m_TagString: Untagged
@@ -1127,7 +1128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279199648055074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.78, y: 1.05, z: -4.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4326331061846318}
@@ -1302,9 +1303,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051208c894ffbb544801605454483672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minion: {fileID: 0}
+  minion: {fileID: 11400000, guid: aeb2e7eaee7ab114f80e409fc410286a, type: 2}
   anim: {fileID: 0}
   twr: {fileID: 0}
+--- !u!136 &136832755774251568
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1279199648055074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.6489553
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.32447767, z: 0}
 --- !u!137 &137095699608324868
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
