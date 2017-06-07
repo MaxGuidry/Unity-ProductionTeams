@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Minion", menuName = "Minion", order = 0)]
 public class Minion : ScriptableObject
 {
 
@@ -12,13 +13,15 @@ public class Minion : ScriptableObject
         PLAYER,
         ENEMY,
     }
-    public MinionType minionType; 
-    public IEnumerator Attack(Tower target)
+    public MinionType minionType;
+    //add to animation event
+    public void Attack(Tower target)
     {
-        while (true)
-        {
-            target.health -= damage;
-            yield return new WaitForSeconds(3);
-        }
+        target.health -= damage;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
     }
 }
