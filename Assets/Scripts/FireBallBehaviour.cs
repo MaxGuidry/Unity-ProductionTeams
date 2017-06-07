@@ -7,6 +7,7 @@ public class FireBallBehaviour : MonoBehaviour
 
     public GameObject Ammo;
     public GameObject Spawner;
+    private ScriptableObject Target;
 
 
     public int Speed;
@@ -17,6 +18,7 @@ public class FireBallBehaviour : MonoBehaviour
         
         var spawn = (GameObject)Instantiate(Ammo, Spawner.transform.position, Spawner.transform.rotation);
         spawn.GetComponent<Rigidbody>().velocity = this.transform.forward * Speed;
+        
        
 
 
@@ -46,7 +48,7 @@ public class FireBallBehaviour : MonoBehaviour
     void Update()
     {
 
-        //if (Ammo.transform.position == Target.transform.position)
+        if (Ammo.transform.position ==)
         {
             
             ScriptableObject.CreateInstance<Minion>().health = 0;
