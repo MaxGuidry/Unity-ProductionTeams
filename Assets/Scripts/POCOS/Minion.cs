@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Minion",menuName = "Minion",order = 0)]
 public class Minion : ScriptableObject
 {
 
@@ -21,5 +22,10 @@ public class Minion : ScriptableObject
             target.health -= damage;
             yield return new WaitForSeconds(.6f);
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
     }
 }
