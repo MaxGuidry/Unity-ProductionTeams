@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/101.mainmenu.unity
+    guid: 5ac366762632d104b94661df01fb41ad
+  - enabled: 1
+    path: Assets/Scenes/101.minionspawner.unity
+    guid: d65b94826d65dfb4e81ce7e8709e57d9

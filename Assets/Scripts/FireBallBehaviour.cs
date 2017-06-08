@@ -48,7 +48,7 @@ public class FireBallBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (Ammo.transform.position ==)
+       // if (Ammo.transform.position ==)
         {
             
             ScriptableObject.CreateInstance<Minion>().health = 0;
