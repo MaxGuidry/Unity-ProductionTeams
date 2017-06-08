@@ -35,37 +35,47 @@ public class WizardAIBehaviour : MonoBehaviour
     {
         if (targetGameObject != null)
         {
-            float angle =
-                Vector3.Angle(
-                    (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
-                     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
-                    this.transform.forward);
-            float actualangle = Vector3.Dot(
-                (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
-                 new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
-                this.transform.forward);
-           Vector3 test =  (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
-                new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized;
-            //Vector3 test = (targetGameObject.transform.position - this.transform.position).normalized;
 
-            Vector3 right = new Quaternion(0, Mathf.Sin(angle) / 2f, 0, Mathf.Cos(angle) / 2f) * this.transform.forward;
-            Debug.Log(angle);
-            if (angle > 5f)
-            {
-                //Debug.Log(Vector3.Dot(test,right.normalized));
-                if (Vector3.Dot(test, right.normalized) > .85)
-                    this.transform.rotation = this.transform.rotation *
-                                              new Quaternion(0, Mathf.Sin(.01f) / 2f, 0,
-                                                  Mathf.Cos(.01f) / 2f);
-                else
-                    this.transform.rotation = this.transform.rotation *
-                                              new Quaternion(0, Mathf.Sin(-.01f) / 2f, 0,
-                                                  Mathf.Cos(-.01f) / 2f);
-                Debug.Log(Vector3.Angle(
-                    (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
-                     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
-                    this.transform.forward));
-            }
+            this.transform.LookAt(new Vector3(targetGameObject.transform.position.x,1.4f,targetGameObject.transform.position.z));
+            
+            // float angle =
+            //     Vector3.Angle(
+            //         (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+            //          new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
+            //         this.transform.forward);
+            // //float actualangle = Vector3.Dot(
+            // //    (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+            // //     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
+            // //    this.transform.forward);
+            //Vector3 test =  (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+            //     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized;
+            // Debug.Log(this.transform.forward.x + "x");
+            // Debug.Log(this.transform.forward.y + "y");
+            // Debug.Log(this.transform.forward.z + "z");
+            // Debug.Log(test.x);
+            // Debug.Log(test.y);
+            // Debug.Log(test.z);
+            // //Vector3 test = (targetGameObject.transform.position - this.transform.position).normalized;
+
+            // Vector3 right = new Quaternion(0, Mathf.Sin(angle * Mathf.Deg2Rad) / 2f, 0, Mathf.Cos(angle * Mathf.Deg2Rad) / 2f) * this.transform.forward;
+            // Debug.Log(right.normalized);
+            // Debug.Log(angle);
+            // if (angle > 5f)
+            // {
+            //     Debug.Log(Vector3.Dot(test, right.normalized));
+            //     if (Vector3.Dot(test, right.normalized) > .9)
+            //         this.transform.rotation = this.transform.rotation *
+            //                                   new Quaternion(0, Mathf.Sin(.01f) / 2f, 0,
+            //                                       Mathf.Cos(.01f) / 2f);
+            //     else
+            //         this.transform.rotation = this.transform.rotation *
+            //                                   new Quaternion(0, Mathf.Sin(-.01f) / 2f, 0,
+            //                                       Mathf.Cos(-.01f) / 2f);
+            //     //Debug.Log(Vector3.Angle(
+            //     //    (new Vector3(targetGameObject.transform.position.x, 0, targetGameObject.transform.position.z) -
+            //     //     new Vector3(this.transform.position.x, 0, this.transform.position.z)).normalized,
+            //     //    this.transform.forward));
+            // }
         }
         if (targetGameObject != null && Vector3.Distance(transform.position, targetGameObject.transform.position) > agent.stoppingDistance && targeting)
         {
@@ -92,6 +102,7 @@ public class WizardAIBehaviour : MonoBehaviour
             {
                 StopCoroutine(Attack());
                 targeting = false;
+                attacking = false;
                 StartCoroutine(Look());
             }
             yield return new WaitForSeconds(wizard.attackCooldown);

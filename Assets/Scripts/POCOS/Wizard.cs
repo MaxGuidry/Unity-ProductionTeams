@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Wizard : ScriptableObject
+public class Wizard : ScriptableObject,IDamager
 {
 
-    public int damage = 10;
-    public float attackCooldown = 2f;
+    public int damage = 15;
+    public float attackCooldown = 1f;
     public void Attack(Minion minion)
     {
         minion.TakeDamage(damage);
@@ -19,5 +19,10 @@ public class Wizard : ScriptableObject
     public class OnLevelUp : UnityEvent
     {
 
+    }
+
+    public void DoDamage(IDamagable target)
+    {
+        target.TakeDamage(damage);
     }
 }
