@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Minion", menuName = "Minion", order = 0)]
-public class Minion : ScriptableObject
+public class Minion : ScriptableObject, IDamagable,IDamager
 {
 
     public int health;
@@ -15,13 +15,23 @@ public class Minion : ScriptableObject
     }
     public MinionType minionType;
     //add to animation event
-    public void Attack(Tower target)
+    //public void Attack(Tower target)
+    //{
+    //    target.health -= damage;
+    //}
+
+    //public void TakeDamage(int amount)
+    //{
+    //    health -= amount;
+    //}
+
+    public void DoDamage(IDamagable target)
     {
-        target.health -= damage;
+        target.TakeDamage(damage);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int damage)
     {
-        health -= amount;
+        health -= damage;
     }
 }
