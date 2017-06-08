@@ -21,8 +21,8 @@ public class MainMenu : MonoBehaviour
     }
     public void MenuExit()
     {
-        MenuExitText.text = "Exit Pressed";  
-        Application.Quit();
+        MenuExitText.text = "Exit Pressed";
+        
     }
     public void MenuStart()
     {
