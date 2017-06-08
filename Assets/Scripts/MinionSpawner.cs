@@ -13,7 +13,7 @@ public class MinionSpawner : MonoBehaviour
     public float SpawnCooldown = 10f;
     void Start()
     {
-        Time.timeScale = 10;
+        //Time.timeScale =2;
         active = true;
         StartCoroutine(spawner());
     }
@@ -24,10 +24,7 @@ public class MinionSpawner : MonoBehaviour
             GameObject go = Instantiate<GameObject>(minion);
             go.transform.position = this.transform.position;
             Minion min = go.GetComponent<MinionBehaviour>().minion;
-            //if (Time.time < 500)
-            //    SpawnCooldown = ((-.0001f * Time.time * Time.time) + 30f);
-            //else if(Time.time < 1750)
-            //    SpawnCooldown = ((.00002f * (Time.time - 1800f) * (Time.time - 1800f) + 3f));
+            
 
             if (Time.time < 200)
             {
@@ -61,6 +58,12 @@ public class MinionSpawner : MonoBehaviour
                 min.health = 250;
                 min.damage = 30;
                 SpawnCooldown = 7;
+            }
+            else
+            {
+                min.health = 300;
+                min.damage = 40;
+                SpawnCooldown = 5;
             }
             yield return new WaitForSeconds(SpawnCooldown);
         }
