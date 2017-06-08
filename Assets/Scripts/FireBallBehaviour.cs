@@ -5,11 +5,10 @@ using UnityEngine;
 public class FireBallBehaviour : MonoBehaviour
 {
 
+
+    private ScriptableObject Target;   
     public GameObject Ammo;
     public GameObject Spawner;
-    private ScriptableObject Target;
-
-
     public int Speed;
 
     public void Shoot()
@@ -18,11 +17,8 @@ public class FireBallBehaviour : MonoBehaviour
         
         var spawn = (GameObject)Instantiate(Ammo, Spawner.transform.position, Spawner.transform.rotation);
         spawn.GetComponent<Rigidbody>().velocity = this.transform.forward * Speed;
-        
-       
-
-
-        Destroy(spawn, 2.0f);
+     
+       Destroy(spawn, 2.0f);
     }
 
     private void DamageMinion(Collider other)
@@ -32,6 +28,8 @@ public class FireBallBehaviour : MonoBehaviour
             ScriptableObject.CreateInstance<Minion>().health = 0;
         GetComponent<MinionBehaviour>().minion.health = 0;
        
+        if (other.tag == "Minion")
+            GetComponent<MinionBehaviour>().minion.health = 0;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -58,6 +56,12 @@ public class FireBallBehaviour : MonoBehaviour
             Shoot();
             Destroy(Ammo, 1.20f);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+        
 
     }
 }
