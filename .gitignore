@@ -32,18 +32,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-Assets/Animation/General_Minion_Animations.meta
-Assets/Animation/General_Minion_Animations/MinionAttackV002.fbx.meta
-Assets/Animation/General_Minion_Animations/MinionDeathV002.fbx.meta
-Assets/Animation/General_Minion_Animations/MinionIdleV002.fbx.meta
-Assets/Animation/General_Minion_Animations/MinionRunningV002.fbx.meta
-Assets/Animation/RED_MINION_ANIMATIONS/FBXs/REDMinionIDLE.fbx.meta
-Assets/Models/BLUEMINION.meta
-Assets/Models/BLUEMINION/FBXs.meta
-Assets/Models/BLUEMINION/FBXs/BLUE_MinionV001.fbx.meta
-Assets/Models/REDMINION/FBXs.meta
-Assets/Models/REDMINION/FBXs/RED_MinionV001.fbx.meta
-Assets/Animation/RED_MINION_ANIMATIONS/FBXs/REDMinionIDLE.fbx.meta
-Assets/Animation/RED_MINION_ANIMATIONS/FBXs/REDMinionIDLE.fbx.meta
-Assets/Animation/RED_MINION_ANIMATIONS/FBXs/REDMinionIDLE.fbx.meta
-Assets/Animation/RED_MINION_ANIMATIONS/FBXs/REDMinionIDLE.fbx.meta
+
