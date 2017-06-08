@@ -303,7 +303,7 @@ ModelImporter:
     13700000: BodyMesh
     13700002: HeadMesh
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
