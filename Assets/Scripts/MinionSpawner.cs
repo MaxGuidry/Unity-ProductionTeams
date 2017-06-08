@@ -24,10 +24,7 @@ public class MinionSpawner : MonoBehaviour
             GameObject go = Instantiate<GameObject>(minion);
             go.transform.position = this.transform.position;
             Minion min = go.GetComponent<MinionBehaviour>().minion;
-            //if (Time.time < 500)
-            //    SpawnCooldown = ((-.0001f * Time.time * Time.time) + 30f);
-            //else if(Time.time < 1750)
-            //    SpawnCooldown = ((.00002f * (Time.time - 1800f) * (Time.time - 1800f) + 3f));
+            
 
             if (Time.time < 200)
             {
