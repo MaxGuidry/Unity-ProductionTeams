@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 584627cc13d83c84f973fbcd839ecb77
-timeCreated: 1496684504
-=======
 guid: 47937a4b6c93045488c6c75458e0ed27
-timeCreated: 1496436596
->>>>>>> master
-licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -308,7 +301,7 @@ ModelImporter:
     13700000: BodyMesh
     13700002: HeadMesh
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -333,7 +326,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

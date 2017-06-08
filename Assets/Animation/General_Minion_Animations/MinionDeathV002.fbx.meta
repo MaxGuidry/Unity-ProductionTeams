@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 8bbde927124245a48a37b9e66da17bdd
-timeCreated: 1496250386
-=======
 guid: 3dce99cf0735c6b428dbddb3ba580d31
-timeCreated: 1496254974
->>>>>>> master
-licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -110,11 +103,7 @@ ModelImporter:
     4300022: RightShoulder
     4300024: RightFist
     4300026: RightElbow
-<<<<<<< HEAD
-    7400000: Take 001
-=======
     7400000: minion@death00
->>>>>>> master
     9500000: //RootNode
     13700000: Head 1
     13700002: LeftElbow
@@ -131,11 +120,7 @@ ModelImporter:
     13700024: RightShoulder
     13700026: WaistRock
   materials:
-<<<<<<< HEAD
-    importMaterials: 1
-=======
     importMaterials: 0
->>>>>>> master
     materialName: 0
     materialSearch: 1
   animations:
@@ -156,9 +141,6 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-<<<<<<< HEAD
-    clipAnimations: []
-=======
     clipAnimations:
     - serializedVersion: 16
       name: minion@death00
@@ -274,11 +256,10 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
->>>>>>> master
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 11c09431df255fc45b9e0a4a17251a4a
-timeCreated: 1496684503
-=======
 guid: 29e66a1f633fd3a44b354fd970393e72
-timeCreated: 1496431348
->>>>>>> master
-licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -24,7 +17,7 @@ ModelImporter:
     4300002: StoneMesh
     9500000: //RootNode
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -49,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
