@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3c5d783244e09f54b83055046bfd9f5e
 timeCreated: 1496250386
+=======
+guid: 6c05d790a78ae04419893f72f108d31b
+timeCreated: 1496254975
+>>>>>>> master
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -105,7 +110,11 @@ ModelImporter:
     4300022: RightShoulder
     4300024: RightFist
     4300026: RightElbow
+<<<<<<< HEAD
     7400000: Take 001
+=======
+    7400000: minion@attack00
+>>>>>>> master
     9500000: //RootNode
     13700000: Head 1
     13700002: LeftElbow
@@ -122,7 +131,11 @@ ModelImporter:
     13700024: RightShoulder
     13700026: WaistRock
   materials:
+<<<<<<< HEAD
     importMaterials: 1
+=======
+    importMaterials: 0
+>>>>>>> master
     materialName: 0
     materialSearch: 1
   animations:
@@ -143,7 +156,133 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+<<<<<<< HEAD
     clipAnimations: []
+=======
+    clipAnimations:
+    - serializedVersion: 16
+      name: minion@attack00
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.31428292
+        functionName: Attack
+        data: 
+        objectReferenceParameter: {fileID: 1279199648055074, guid: 450e3cba1ac126e4a8997ace8e89b557,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Minion1
+        weight: 1
+      - path: Minion1/Head
+        weight: 1
+      - path: Minion1/Head/Head 1
+        weight: 1
+      - path: Minion1/Head/Head 1/LeftEye
+        weight: 1
+      - path: Minion1/Head/Head 1/RightEye
+        weight: 1
+      - path: Minion1/LeftArm
+        weight: 1
+      - path: Minion1/LeftArm/LeftElbow
+        weight: 1
+      - path: Minion1/LeftArm/LeftFist
+        weight: 1
+      - path: Minion1/LeftArm/LeftShoulder
+        weight: 1
+      - path: Minion1/LeftLeg
+        weight: 1
+      - path: Minion1/LeftLeg/LeftFoot
+        weight: 1
+      - path: Minion1/LeftLeg/LeftKnee
+        weight: 1
+      - path: Minion1/RightArm
+        weight: 1
+      - path: Minion1/RightArm/RightElbow
+        weight: 1
+      - path: Minion1/RightArm/RightFist
+        weight: 1
+      - path: Minion1/RightArm/RightShoulder
+        weight: 1
+      - path: Minion1/RightLeg
+        weight: 1
+      - path: Minion1/RightLeg/RightFoot
+        weight: 1
+      - path: Minion1/RightLeg/RightKnee
+        weight: 1
+      - path: Minion1/WaistRock
+        weight: 1
+      - path: Rig
+        weight: 1
+      - path: Rig/Waist
+        weight: 1
+      - path: Rig/Waist/L_Hip
+        weight: 1
+      - path: Rig/Waist/L_Hip/L_Knee
+        weight: 1
+      - path: Rig/Waist/L_Hip/L_Knee/L_Ankle
+        weight: 1
+      - path: Rig/Waist/L_Hip/L_Knee/L_Ankle/L_Toes
+        weight: 1
+      - path: Rig/Waist/R_Hip
+        weight: 1
+      - path: Rig/Waist/R_Hip/R_Knee
+        weight: 1
+      - path: Rig/Waist/R_Hip/R_Knee/R_Ankle
+        weight: 1
+      - path: Rig/Waist/R_Hip/R_Knee/R_Ankle/R_Toes
+        weight: 1
+      - path: Rig/Waist/Spine
+        weight: 1
+      - path: Rig/Waist/Spine/Head 2
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: Rig/Waist/Spine/L_Clavicle/L_Shoulder/L_Elbow/L_Wrist/L_Fist
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: Rig/Waist/Spine/R_Clavicle/R_Shoulder/R_Elbow/R_Wrist/R_Fist
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+>>>>>>> master
     isReadable: 1
   meshes:
     lODScreenPercentages: []
