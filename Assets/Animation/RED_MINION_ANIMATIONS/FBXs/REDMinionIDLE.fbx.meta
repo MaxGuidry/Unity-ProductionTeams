@@ -26,6 +26,28 @@ ModelImporter:
     100036: RightLeg
     100038: RightShoulder
     100040: WaistRock
+    100042: Head 2
+    100044: L_Ankle
+    100046: L_Clavicle
+    100048: L_Elbow
+    100050: L_Fist
+    100052: L_Hip
+    100054: L_Knee
+    100056: L_Shoulder
+    100058: L_Toes
+    100060: L_Wrist
+    100062: R_Ankle
+    100064: R_Clavicle
+    100066: R_Elbow
+    100068: R_Fist
+    100070: R_Hip
+    100072: R_Knee
+    100074: R_Shoulder
+    100076: R_Toes
+    100078: R_Wrist
+    100080: REDRig
+    100082: Spine
+    100084: Waist
     400000: Head
     400002: Head 1
     400004: LeftArm
@@ -47,6 +69,28 @@ ModelImporter:
     400036: RightLeg
     400038: RightShoulder
     400040: WaistRock
+    400042: Head 2
+    400044: L_Ankle
+    400046: L_Clavicle
+    400048: L_Elbow
+    400050: L_Fist
+    400052: L_Hip
+    400054: L_Knee
+    400056: L_Shoulder
+    400058: L_Toes
+    400060: L_Wrist
+    400062: R_Ankle
+    400064: R_Clavicle
+    400066: R_Elbow
+    400068: R_Fist
+    400070: R_Hip
+    400072: R_Knee
+    400074: R_Shoulder
+    400076: R_Toes
+    400078: R_Wrist
+    400080: REDRig
+    400082: Spine
+    400084: Waist
     2300000: Head 1
     2300002: LeftElbow
     2300004: LeftEye
@@ -89,7 +133,22 @@ ModelImporter:
     4300022: RightShoulder
     4300024: RightFist
     4300026: RightElbow
+    7400000: Take 001
     9500000: //RootNode
+    13700000: Head 1
+    13700002: LeftElbow
+    13700004: LeftEye
+    13700006: LeftFist
+    13700008: LeftFoot
+    13700010: LeftKnee
+    13700012: LeftShoulder
+    13700014: RightElbow
+    13700016: RightEye
+    13700018: RightFist
+    13700020: RightFoot
+    13700022: RightKnee
+    13700024: RightShoulder
+    13700026: WaistRock
   materials:
     importMaterials: 1
     materialName: 0
