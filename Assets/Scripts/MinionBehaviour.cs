@@ -50,33 +50,37 @@ public class MinionBehaviour : MonoBehaviour
             twr = PlayerTower.GetComponent<TowerBehaviour>().tower;
             minion.minionType = Minion.MinionType.ENEMY;
         }
-        if (this.gameObject.transform.position.z < 0)
+        GameObject leftb = GameObject.FindGameObjectWithTag("LeftBridge");
+        GameObject rightb = GameObject.FindGameObjectWithTag("RightBridge");
+        if (Vector3.Distance(this.transform.position, leftb.transform.position) <
+            Vector3.Distance(this.transform.position, rightb.transform.position))
         {
-            nav.SetDestination(GameObject.FindGameObjectWithTag("LeftBridge").transform.position);
+            nav.SetDestination(leftb.transform.position);
         }
         else
-            nav.SetDestination(GameObject.FindGameObjectWithTag("RightBridge").transform.position);
+            nav.SetDestination(rightb.transform.position);
 
-        switch ( minion.minionType)
+        switch (minion.minionType)
         {
             case Minion.MinionType.ENEMY:
-            {
-                var v = this.gameObject.GetComponentsInChildren<Renderer>().ToList();
-                foreach (var renderer in v)
                 {
-                    renderer.material = RedMaterial;
+                    var v = this.gameObject.GetComponentsInChildren<Renderer>().ToList();
+                    foreach (var renderer in v)
+                    {
+                        renderer.material = RedMaterial;
+                    }
+                    break;
                 }
-                break;
-            }
 
-            case Minion.MinionType.PLAYER:{
-                var v = this.gameObject.GetComponentsInChildren<Renderer>().ToList();
-                foreach (var renderer in v)
+            case Minion.MinionType.PLAYER:
                 {
-                    renderer.material = BlueMaterial;
+                    var v = this.gameObject.GetComponentsInChildren<Renderer>().ToList();
+                    foreach (var renderer in v)
+                    {
+                        renderer.material = BlueMaterial;
+                    }
+                    break;
                 }
-                break;
-            }
         }
     }
 
@@ -88,9 +92,14 @@ public class MinionBehaviour : MonoBehaviour
         //bad fix later
         anim.SetFloat("health", minion.health);
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
+        {
             nav.SetDestination(targetTower);
+            nav.stoppingDistance = 10;
 
-        if (Vector3.Distance(this.transform.position, targetTower) < 5 && attacking == false)
+        }
+
+
+        if (Vector3.Distance(this.transform.position, targetTower) < 7 && attacking == false)
         {
             anim.SetTrigger("attack");
             attacking = true;
