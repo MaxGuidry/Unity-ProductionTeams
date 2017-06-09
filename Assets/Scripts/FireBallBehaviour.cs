@@ -15,8 +15,8 @@ public class FireBallBehaviour : MonoBehaviour
     {
         var left = (GameObject) Instantiate(Ammo, LeftHand.transform.position, LeftHand.transform.rotation);
         var right = (GameObject)Instantiate(Ammo, RightHand.transform.position, RightHand.transform.rotation);
-        left.GetComponent<Rigidbody>().velocity = LeftHand.transform.forward * Speed;
-        right.GetComponent<Rigidbody>().velocity = RightHand.transform.forward * Speed;
+        left.GetComponent<Rigidbody>().velocity = LeftHand.transform.right * -1 * Speed;
+        right.GetComponent<Rigidbody>().velocity = RightHand.transform.right * Speed;
         Destroy(left, 2.0f);
         Destroy(right, 2.0f);
     }
@@ -33,6 +33,7 @@ public class FireBallBehaviour : MonoBehaviour
 
     void Update()
     {
+    
      
         if (Input.GetKeyDown(KeyCode.Space))
         {
