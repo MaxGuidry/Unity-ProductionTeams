@@ -5,10 +5,9 @@ using UnityEngine;
 public class FireBallBehaviour : MonoBehaviour
 {
 
-    private GameObject Target;
+    public GameObject Target;
     public GameObject Ammo;
     public GameObject Spawner;
-    private GameObject wizard;
     public int Speed;
 
     public void Shoot()
@@ -25,14 +24,16 @@ public class FireBallBehaviour : MonoBehaviour
     private void DamageMinion(Collider other)
     {
 
-        if (Ammo.transform.position == wizard.transform.position)
-            GetComponent<IDamagable>().TakeDamage(100);
+        
     }
 
     void Update()
     {
-        
-        
+        if (Ammo.transform.position == Target.transform.position)
+        {
+            
+            GetComponent<Minion>().TakeDamage(10);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
