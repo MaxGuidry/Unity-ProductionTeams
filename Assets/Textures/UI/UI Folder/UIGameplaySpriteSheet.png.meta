@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: 8baf822e3d7edd546add6667623b6aa7
+timeCreated: 1497049062
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TimerBackPlate
+    21300002: RedTowerIcon
+    21300004: RedTowerDepletedHealth
+    21300006: TimerMidPlate
+    21300008: BlueTowerDepletedHealth
+    21300010: BlueTowerIcon
+    21300012: RedTowerHealthBar
+    21300014: BlueTowerHealthBar
+    21300016: RedWizardIcon
+    21300018: RedWizardDepletedHealth
+    21300020: UIGameplaySpriteSheet_10
+    21300022: BlueWizardDepletedHealth
+    21300024: BlueWizardIcon
+    21300026: RedWizardHealthBar
+    21300028: BlueWizardHealthBar
+    21300030: UIGameplaySpriteSheet_15
+    21300032: RedWizardBackHealthBar
+    21300034: BlueWizardBackHealthBar
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TimerBackPlate
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 724
+        width: 1808
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedTowerIcon
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 521
+        width: 209
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedTowerDepletedHealth
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 632
+        width: 439
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TimerMidPlate
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 573
+        width: 209
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueTowerDepletedHealth
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 632
+        width: 437
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueTowerIcon
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 521
+        width: 208
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedTowerHealthBar
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 512
+        width: 439
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueTowerHealthBar
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 512
+        width: 437
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedWizardIcon
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 259
+        width: 189
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedWizardDepletedHealth
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 353
+        width: 371
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UIGameplaySpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 346
+        width: 5
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueWizardDepletedHealth
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 351
+        width: 371
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueWizardIcon
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 241
+        width: 191
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedWizardHealthBar
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 246
+        width: 372
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueWizardHealthBar
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 243
+        width: 376
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UIGameplaySpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 285
+        width: 4
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedWizardBackHealthBar
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 4
+        width: 668
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BlueWizardBackHealthBar
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 4
+        width: 666
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
