@@ -14,14 +14,14 @@ public class FireBallBehaviour : MonoBehaviour
     public void ShootLeft()
     {
         var left = (GameObject) Instantiate(Ammo, LeftHand.transform.position, LeftHand.transform.rotation);
-        left.GetComponent<Rigidbody>().velocity = LeftHand.transform.right * -1 * Speed;
+        left.GetComponent<Rigidbody>().velocity = (LeftHand.transform.right * -1) * Speed;
         Destroy(left, 2.0f);
     }
 
     public void ShootRight()
     {
         var right = (GameObject)Instantiate(Ammo, RightHand.transform.position, RightHand.transform.rotation);
-        right.GetComponent<Rigidbody>().velocity = RightHand.transform.right * Speed;
+        right.GetComponent<Rigidbody>().velocity =  (new Quaternion(0, Mathf.Sin((-45f / 180f) * Mathf.PI) / 2f,0,Mathf.Cos((-45f / 180f) * Mathf.PI)/2f) * RightHand.transform.right) * Speed;
         Destroy(right, 2.0f);
     }
 
