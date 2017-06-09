@@ -18,6 +18,11 @@ public class WizardAIBehaviour : MonoBehaviour
 
     private Wizard wizard;
 
+
+    
+
+    
+    //The following variables and functions are incase I cant use dylans stuff
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -98,7 +103,7 @@ public class WizardAIBehaviour : MonoBehaviour
     {
 
         Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
-        wizard.Attack(m);
+        GetComponent<FireBallBehaviour>().Shoot();
         if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
         {
             targeting = false;
@@ -162,6 +167,8 @@ public class WizardAIBehaviour : MonoBehaviour
             }
             if (toRemove != null)
                 objectsICareAbout.Remove(toRemove);
+            
+            Destroy(toRemove);
             Target(objectsICareAbout[0]);
         }
     }
