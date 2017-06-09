@@ -5,63 +5,42 @@ using UnityEngine;
 public class FireBallBehaviour : MonoBehaviour
 {
 
-
-    private ScriptableObject Target;   
+  
     public GameObject Ammo;
-    public GameObject Spawner;
+    public GameObject LeftHand;
+    public GameObject RightHand;
     public int Speed;
 
     public void Shoot()
     {
-
-        
-        var spawn = (GameObject)Instantiate(Ammo, Spawner.transform.position, Spawner.transform.rotation);
-        spawn.GetComponent<Rigidbody>().velocity = this.transform.forward * Speed;
-     
-       Destroy(spawn, 2.0f);
+        var left = (GameObject) Instantiate(Ammo, LeftHand.transform.position, LeftHand.transform.rotation);
+        var right = (GameObject)Instantiate(Ammo, RightHand.transform.position, RightHand.transform.rotation);
+        left.GetComponent<Rigidbody>().velocity = LeftHand.transform.forward * Speed;
+        right.GetComponent<Rigidbody>().velocity = RightHand.transform.forward * Speed;
+        Destroy(left, 2.0f);
+        Destroy(right, 2.0f);
     }
 
+    public void OnEnter(Collision other)
+    {
+        
+    }
     private void DamageMinion(Collider other)
     {
 
-        //if (Ammo.transform.position == Target.transform.position)
-            ScriptableObject.CreateInstance<Minion>().health = 0;
-        GetComponent<MinionBehaviour>().minion.health = 0;
-       
-        if (other.tag == "Minion")
-            GetComponent<MinionBehaviour>().minion.health = 0;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Minion")
-            Shoot();
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Minion")
-            Shoot();
+        
     }
 
     void Update()
     {
-
-       // if (Ammo.transform.position ==)
-        {
-            
-            ScriptableObject.CreateInstance<Minion>().health = 0;
-        }
+     
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
             Destroy(Ammo, 1.20f);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
-        
-
     }
+
 }
+
