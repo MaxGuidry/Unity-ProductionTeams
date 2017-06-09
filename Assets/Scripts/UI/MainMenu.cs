@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public Text MenuStartText;
     public Text InstructionsText;
     public Text CreditsText;
-    // Use this for initialization
+    
     void Start()
     {
 
