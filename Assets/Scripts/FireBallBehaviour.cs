@@ -5,16 +5,20 @@ using UnityEngine;
 public class FireBallBehaviour : MonoBehaviour
 {
 
-    public GameObject Target;
+  
     public GameObject Ammo;
-    public GameObject Spawner;
+    public GameObject LeftHand;
+    public GameObject RightHand;
     public int Speed;
 
     public void Shoot()
     {
-        var spawn = (GameObject) Instantiate(Ammo, Spawner.transform.position, Spawner.transform.rotation);
-        spawn.GetComponent<Rigidbody>().velocity = Spawner.transform.forward * Speed;
-        Destroy(spawn, 2.0f);
+        var left = (GameObject) Instantiate(Ammo, LeftHand.transform.position, LeftHand.transform.rotation);
+        var right = (GameObject)Instantiate(Ammo, RightHand.transform.position, RightHand.transform.rotation);
+        left.GetComponent<Rigidbody>().velocity = LeftHand.transform.forward * Speed;
+        right.GetComponent<Rigidbody>().velocity = RightHand.transform.forward * Speed;
+        Destroy(left, 2.0f);
+        Destroy(right, 2.0f);
     }
 
     public void OnEnter(Collision other)
@@ -29,11 +33,7 @@ public class FireBallBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Ammo.transform.position == Target.transform.position)
-        {
-            
-            GetComponent<Minion>().TakeDamage(10);
-        }
+     
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
