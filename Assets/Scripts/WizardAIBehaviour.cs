@@ -36,7 +36,7 @@ public class WizardAIBehaviour : MonoBehaviour
         if (targetGameObject != null)
         {
 
-            this.transform.LookAt(new Vector3(targetGameObject.transform.position.x,1.4f,targetGameObject.transform.position.z));
+            this.transform.LookAt(new Vector3(targetGameObject.transform.position.x,6f,targetGameObject.transform.position.z));
             
             // float angle =
             //     Vector3.Angle(
@@ -123,7 +123,7 @@ public class WizardAIBehaviour : MonoBehaviour
                                               Mathf.Cos((float)i / 180f * Mathf.PI) / 2f);
                 hits.AddRange(Physics
                     .SphereCastAll(
-                        new Ray(rayOrigin.position - (this.gameObject.transform.forward * 2f), this.gameObject.transform.forward), 1, 20).ToList());
+                        new Ray(rayOrigin.position - (this.gameObject.transform.forward * 2f), this.gameObject.transform.forward), 1, 100).ToList());
             }
             this.transform.rotation = originrot;
 
@@ -168,7 +168,7 @@ public class WizardAIBehaviour : MonoBehaviour
         targeting = true;
         //agent.isStopped = false;
         agent.SetDestination(go.transform.position);
-        agent.stoppingDistance = 3f;
+        agent.stoppingDistance = 15f;
         StopCoroutine(Look());
     }
 

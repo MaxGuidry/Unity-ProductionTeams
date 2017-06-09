@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 47937a4b6c93045488c6c75458e0ed27
-timeCreated: 1496436596
-licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -303,7 +301,7 @@ ModelImporter:
     13700000: BodyMesh
     13700002: HeadMesh
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
