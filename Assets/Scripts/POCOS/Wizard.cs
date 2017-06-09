@@ -6,9 +6,8 @@ using UnityEngine.Events;
 
 public class Wizard : ScriptableObject,IDamager
 {
-
+    public GameObject fireball;
     public int damage = 15;
-    public float attackCooldown = 1f;
     public void Attack(Minion minion)
     {
         minion.TakeDamage(damage);
@@ -25,4 +24,7 @@ public class Wizard : ScriptableObject,IDamager
     {
         target.TakeDamage(damage);
     }
+    public class OnFireBallHit : UnityEvent
+    { }
+
 }

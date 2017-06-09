@@ -23,7 +23,7 @@ public class MinionSpawner : MonoBehaviour
         {
             auto = true;
         }
-        //Time.timeScale =2;
+        Time.timeScale =5;
         active = true;
         //if(auto)
         StartCoroutine(spawner());

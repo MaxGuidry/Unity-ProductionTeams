@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Player : ScriptableObject, IDamager
 {
-
-    public int health;
-    public int damage;
+    public Wizard me;
     public float xp;
     public float maxXP;
     public int crystals;

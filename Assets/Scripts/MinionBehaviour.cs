@@ -16,9 +16,12 @@ public class MinionBehaviour : MonoBehaviour
     private bool attacking;
     public Tower twr;
     private UnityEngine.AI.NavMeshAgent nav;
+
+    public Wizard.OnFireBallHit fireballhit = new Wizard.OnFireBallHit();
     // Use this for initialization
     void OnEnable()
     {
+        ;
         //this.gameObject.AddComponent<DestroyForTesting>().time = 10f;
     }
     void Awake()
@@ -94,12 +97,12 @@ public class MinionBehaviour : MonoBehaviour
         if (Vector3.Distance(this.transform.position, nav.destination) < 3)
         {
             nav.SetDestination(targetTower);
-            nav.stoppingDistance = 10;
+            nav.stoppingDistance = 15;
 
         }
 
 
-        if (Vector3.Distance(this.transform.position, targetTower) < 7 && attacking == false)
+        if (Vector3.Distance(this.transform.position, targetTower) < 30 && attacking == false)
         {
             anim.SetTrigger("attack");
             attacking = true;
@@ -116,6 +119,15 @@ public class MinionBehaviour : MonoBehaviour
     public void Attack()
     {
         minion.DoDamage(twr);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyFireball") && minion.minionType == Minion.MinionType.PLAYER)
+            GameObject.FindObjectOfType<WizardAIBehaviour>().wizard.DoDamage(minion);
+        //else if (collision.gameObject.CompareTag("PlayerFireball") && minion.minionType == Minion.MinionType.ENEMY)
+        //    GameObject.FindObjectOfType<PlayerController>().wizard.DoDamage(minion);
+
     }
 
 }

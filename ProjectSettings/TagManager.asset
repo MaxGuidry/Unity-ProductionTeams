@@ -8,6 +8,8 @@ TagManager:
   - RightBridge
   - Player Tower
   - Enemy Tower
+  - EnemyFireball
+  - PlayerFireball
   layers:
   - Default
   - TransparentFX

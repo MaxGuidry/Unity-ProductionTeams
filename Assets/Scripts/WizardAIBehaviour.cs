@@ -15,9 +15,9 @@ public class WizardAIBehaviour : MonoBehaviour
 
     public GameObject targetGameObject;
     private bool targeting;
-
-    private Wizard wizard;
-
+    [HideInInspector]
+    public Wizard wizard;
+    private GameObject toRemove;
 
     
 
@@ -83,6 +83,16 @@ public class WizardAIBehaviour : MonoBehaviour
             //     //    this.transform.forward));
             // }
             #endregion MADEUP_MATH
+
+            if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
+            {
+                targeting = false;
+                attacking = false;
+                animator.SetTrigger("targetdead");
+                objectsICareAbout.Remove(targetGameObject);
+                targetGameObject = null;
+                StartCoroutine(Look());
+            }
         }
         if (targetGameObject != null && Vector3.Distance(transform.position, targetGameObject.transform.position) > agent.stoppingDistance && targeting)
         {
@@ -104,12 +114,7 @@ public class WizardAIBehaviour : MonoBehaviour
 
         Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
         GetComponent<FireBallBehaviour>().ShootLeft();
-        if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
-        {
-            targeting = false;
-            attacking = false;
-            StartCoroutine(Look());
-        }
+        
 
     }
 
@@ -117,12 +122,7 @@ public class WizardAIBehaviour : MonoBehaviour
     {
         Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
         GetComponent<FireBallBehaviour>().ShootRight();
-        if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
-        {
-            targeting = false;
-            attacking = false;
-            StartCoroutine(Look());
-        }
+        
     }
 
     private IEnumerator Look()
@@ -156,7 +156,7 @@ public class WizardAIBehaviour : MonoBehaviour
                     }
                 }
             SortByImportance();
-            yield return new WaitForSeconds(1);
+            yield return null;
         }
     }
 
@@ -167,8 +167,7 @@ public class WizardAIBehaviour : MonoBehaviour
         minionThreats = minionThreats.OrderByDescending(x => x.threat).ToList();
         foreach (var minionThreat in minionThreats)
             objectsICareAbout.Add(minionThreat.go);
-        GameObject toRemove = new GameObject();
-        toRemove = null;
+        
         if (!targeting && objectsICareAbout.Count > 0)
         {
             foreach (var o in objectsICareAbout)
@@ -177,10 +176,9 @@ public class WizardAIBehaviour : MonoBehaviour
                 if (v.health <= 0)
                     toRemove = o;
             }
-            if (toRemove != null)
-                objectsICareAbout.Remove(toRemove);
-            
-            Destroy(toRemove);
+           // if (toRemove != null)
+               // objectsICareAbout.Remove(toRemove);
+            //toRemove = null;
             Target(objectsICareAbout[0]);
         }
     }
@@ -188,6 +186,8 @@ public class WizardAIBehaviour : MonoBehaviour
     private void Target(GameObject go)
     {
         targetGameObject = go;
+        Minion m = go.GetComponent<MinionBehaviour>().minion;
+        Debug.Log(m.health);
         targeting = true;
         //agent.isStopped = false;
         agent.SetDestination(go.transform.position);
