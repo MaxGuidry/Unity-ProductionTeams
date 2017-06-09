@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.WSA;
-using Application = UnityEngine.Application;
-using Object = UnityEngine.Object;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -21,8 +19,8 @@ public class MainMenu : MonoBehaviour
     }
     public void MenuExit()
     {
-        MenuExitText.text = "Exit Pressed";  
-        Application.Quit();
+        MenuExitText.text = "Exit Pressed";
+    
     }
     public void MenuStart()
     {
