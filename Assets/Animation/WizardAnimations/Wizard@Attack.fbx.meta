@@ -351,7 +351,15 @@ ModelImporter:
       curves: []
       events:
       - time: 0.27350175
-        functionName: ShootFireBall
+        functionName: ShootLeftFireBall
+        data: 
+        objectReferenceParameter: {fileID: 1493499155840600, guid: 1861b601cdbf40b4bbd11280fe9134f7,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7444925
+        functionName: ShootRightFireBall
         data: 
         objectReferenceParameter: {fileID: 1493499155840600, guid: 1861b601cdbf40b4bbd11280fe9134f7,
           type: 2}

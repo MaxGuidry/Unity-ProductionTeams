@@ -99,11 +99,11 @@ public class WizardAIBehaviour : MonoBehaviour
     {
 
     }
-    private void ShootFireBall()
+    private void ShootLeftFireBall()
     {
 
         Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
-        GetComponent<FireBallBehaviour>().Shoot();
+        GetComponent<FireBallBehaviour>().ShootLeft();
         if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
         {
             targeting = false;
@@ -111,6 +111,18 @@ public class WizardAIBehaviour : MonoBehaviour
             StartCoroutine(Look());
         }
 
+    }
+
+    private void ShootRightFireBall()
+    {
+        Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
+        GetComponent<FireBallBehaviour>().ShootRight();
+        if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
+        {
+            targeting = false;
+            attacking = false;
+            StartCoroutine(Look());
+        }
     }
 
     private IEnumerator Look()
