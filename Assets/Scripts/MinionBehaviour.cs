@@ -124,7 +124,10 @@ public class MinionBehaviour : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("EnemyFireball") && minion.minionType == Minion.MinionType.PLAYER)
+        {
             GameObject.FindObjectOfType<WizardAIBehaviour>().wizard.DoDamage(minion);
+            Destroy(collision.gameObject);
+        }
         //else if (collision.gameObject.CompareTag("PlayerFireball") && minion.minionType == Minion.MinionType.ENEMY)
         //    GameObject.FindObjectOfType<PlayerController>().wizard.DoDamage(minion);
 

@@ -14,14 +14,15 @@ public class WizardAIBehaviour : MonoBehaviour
     private List<GameObject> objectsICareAbout;
 
     public GameObject targetGameObject;
+    private Minion m;
     private bool targeting;
     [HideInInspector]
     public Wizard wizard;
     private GameObject toRemove;
 
-    
 
-    
+
+
     //The following variables and functions are incase I cant use dylans stuff
     private void Start()
     {
@@ -39,6 +40,7 @@ public class WizardAIBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+       // m = targetGameObject.GetComponent<MinionBehaviour>().minion;
         animator.SetFloat("speed", agent.velocity.magnitude);
         if (targetGameObject != null)
         {
@@ -112,17 +114,15 @@ public class WizardAIBehaviour : MonoBehaviour
     private void ShootLeftFireBall()
     {
 
-        Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
-        GetComponent<FireBallBehaviour>().ShootLeft();
-        
+        GetComponent<MaxFireBall>().ShootLeft(targetGameObject);
+
 
     }
 
     private void ShootRightFireBall()
     {
-        Minion m = targetGameObject.GetComponent<MinionBehaviour>().minion;
-        GetComponent<FireBallBehaviour>().ShootRight();
-        
+        GetComponent<MaxFireBall>().ShootRight(targetGameObject);
+
     }
 
     private IEnumerator Look()
@@ -167,7 +167,7 @@ public class WizardAIBehaviour : MonoBehaviour
         minionThreats = minionThreats.OrderByDescending(x => x.threat).ToList();
         foreach (var minionThreat in minionThreats)
             objectsICareAbout.Add(minionThreat.go);
-        
+
         if (!targeting && objectsICareAbout.Count > 0)
         {
             foreach (var o in objectsICareAbout)
@@ -176,18 +176,19 @@ public class WizardAIBehaviour : MonoBehaviour
                 if (v.health <= 0)
                     toRemove = o;
             }
-           // if (toRemove != null)
-               // objectsICareAbout.Remove(toRemove);
-            //toRemove = null;
-            Target(objectsICareAbout[0]);
+            if (toRemove != null)
+                objectsICareAbout.Remove(toRemove);
+            if (objectsICareAbout.Count > 0)
+                Target(objectsICareAbout[0]);
+            else
+                targetGameObject = null;
         }
     }
 
     private void Target(GameObject go)
     {
         targetGameObject = go;
-        Minion m = go.GetComponent<MinionBehaviour>().minion;
-        Debug.Log(m.health);
+     
         targeting = true;
         //agent.isStopped = false;
         agent.SetDestination(go.transform.position);
