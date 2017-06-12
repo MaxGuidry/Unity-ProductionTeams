@@ -132,5 +132,15 @@ public class MinionBehaviour : MonoBehaviour
         //    GameObject.FindObjectOfType<PlayerController>().wizard.DoDamage(minion);
 
     }
+    public class ClickedEvent : UnityEngine.Events.UnityEvent
+    {
 
+    }
+    public ClickedEvent clicked = new ClickedEvent();
+    public void OnMouseDown()
+    {
+        if (minion.minionType == Minion.MinionType.ENEMY)
+            FindObjectOfType<PlayerController>().Target(this.gameObject);
+        // clicked.Invoke();
+    }
 }
