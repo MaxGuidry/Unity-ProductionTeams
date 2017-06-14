@@ -25,8 +25,8 @@ public class MinionSpawner : MonoBehaviour
         }
         //Time.timeScale =5;
         active = true;
-        //if(auto)
-        StartCoroutine(spawner());
+        if (auto)
+            StartCoroutine(spawner());
     }
     IEnumerator spawner()
     {
