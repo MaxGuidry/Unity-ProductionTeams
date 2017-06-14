@@ -8,10 +8,10 @@ public class Wizard : ScriptableObject,IDamager
 {
     public GameObject fireball;
     public int damage = 8;
-    public void Attack(Minion minion)
-    {
-        minion.TakeDamage(damage);
-    }
+    //public void Attack(Minion minion)
+    //{
+    //    minion.TakeDamage(damage);
+    //}
 
 
   

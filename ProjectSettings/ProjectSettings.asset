@@ -12,7 +12,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Wizard Tower Defense
-  defaultCursor: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -76,6 +76,7 @@ PlayerSettings:
   forceSingleInstance: 0
   resizableWindow: 0
   useMacAppStoreValidation: 0
+  macAppStoreCategory: public.app-category.games
   gpuSkinning: 0
   graphicsJobs: 0
   xboxPIXTextureCapture: 0
@@ -203,6 +204,7 @@ PlayerSettings:
   iOSMetalForceHardShadows: 0
   metalEditorSupport: 1
   metalAPIValidation: 1
+  iOSRenderExtraFrameOnPause: 1
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
@@ -247,6 +249,7 @@ PlayerSettings:
   wiiUGamePadStartupScreen: {fileID: 0}
   wiiUDrcBufferDisabled: 0
   wiiUProfilerLibPath: 
+  playModeTestRunnerEnabled: 0
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1

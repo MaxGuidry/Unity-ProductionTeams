@@ -19,4 +19,8 @@ public class FireballSeek : MonoBehaviour {
 
 
     }
+    void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }
