@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public Text MenuExitText;
+    
     public Text MenuStartText;
     public Text InstructionsText;
     public Text CreditsText;
@@ -19,7 +19,8 @@ public class MainMenu : MonoBehaviour
     }
     public void MenuExit()
     {
-        MenuExitText.text = "Exit Pressed";
+        
+        Application.Quit();
     
     }
     public void MenuStart()
@@ -28,11 +29,17 @@ public class MainMenu : MonoBehaviour
     }
     public void Instructions()
     {
-        InstructionsText.text = "Duh Instructions";
+        InstructionsText.text = "Left Click- Left click on any minion to attack it!!" +"\n" + "Right Click- Right click anywhere on the map to move there!!" + "\n" + "W,S,A,D- This will allow the player to navigate through the map!!";
+        
     }
     public void Credits()
     {
-        CreditsText.text = "it worked";
+        CreditsText.text = "Max Guidry-Programming"+ "\n"+ "Dylan Mitchell-Programming" + "\n" + "Ricky Pham-Artist"+  "\n" + "Eric Shelling-Artist" + "\n" + "Dustin Pouncey-Artist";
+    }
+
+    public void GetText(Text textObj)
+    {
+        textObj.enabled = !textObj.enabled;
     }
     void Update()
     {
