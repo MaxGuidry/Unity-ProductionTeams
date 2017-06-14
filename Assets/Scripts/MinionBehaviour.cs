@@ -21,7 +21,27 @@ public class MinionBehaviour : MonoBehaviour
     // Use this for initialization
     void OnEnable()
     {
-        ;
+        anim = GetComponent<Animator>();
+        if (minion == null)
+            minion = ScriptableObject.CreateInstance<Minion>();
+
+        attacking = false;
+        PlayerTower = GameObject.FindGameObjectWithTag("Player Tower");
+        EnemyTower = GameObject.FindGameObjectWithTag("Enemy Tower");
+
+        if (Vector3.Distance(this.transform.position, PlayerTower.transform.position) < Vector3.Distance(this.transform.position, EnemyTower.transform.position))
+        {
+            targetTower = EnemyTower.transform.position;
+            twr = EnemyTower.GetComponent<TowerBehaviour>().tower;
+
+            minion.minionType = Minion.MinionType.PLAYER;
+        }
+        else
+        {
+            targetTower = PlayerTower.transform.position;
+            twr = PlayerTower.GetComponent<TowerBehaviour>().tower;
+            minion.minionType = Minion.MinionType.ENEMY;
+        }
         //this.gameObject.AddComponent<DestroyForTesting>().time = 10f;
     }
     void Awake()
@@ -32,9 +52,26 @@ public class MinionBehaviour : MonoBehaviour
             minion = ScriptableObject.CreateInstance<Minion>();
 
         attacking = false;
+        PlayerTower = GameObject.FindGameObjectWithTag("Player Tower");
+        EnemyTower = GameObject.FindGameObjectWithTag("Enemy Tower");
+
+        if (Vector3.Distance(this.transform.position, PlayerTower.transform.position) < Vector3.Distance(this.transform.position, EnemyTower.transform.position))
+        {
+            targetTower = EnemyTower.transform.position;
+            twr = EnemyTower.GetComponent<TowerBehaviour>().tower;
+
+            minion.minionType = Minion.MinionType.PLAYER;
+        }
+        else
+        {
+            targetTower = PlayerTower.transform.position;
+            twr = PlayerTower.GetComponent<TowerBehaviour>().tower;
+            minion.minionType = Minion.MinionType.ENEMY;
+        }
     }
     void Start()
     {
+        GetComponent<CapsuleCollider>().enabled = true;
         nav = GetComponent<NavMeshAgent>();
         nav.Warp(this.transform.position);
         PlayerTower = GameObject.FindGameObjectWithTag("Player Tower");
@@ -126,11 +163,13 @@ public class MinionBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyFireball") && minion.minionType == Minion.MinionType.PLAYER)
         {
             GameObject.FindObjectOfType<WizardAIBehaviour>().wizard.DoDamage(minion);
+            collision.gameObject.GetComponent<FireballSeek>().StopAllCoroutines();
             Destroy(collision.gameObject, .1f);
         }
         else if (collision.gameObject.CompareTag("PlayerFireball") && minion.minionType == Minion.MinionType.ENEMY)
         {
             GameObject.FindObjectOfType<PlayerController>().wiz.DoDamage(minion);
+            collision.gameObject.GetComponent<FireballSeek>().StopAllCoroutines();
             Destroy(collision.gameObject, .1f);
         }
     }

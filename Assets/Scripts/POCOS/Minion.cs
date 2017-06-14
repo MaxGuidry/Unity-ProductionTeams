@@ -13,7 +13,12 @@ public class Minion : ScriptableObject, IDamagable,IDamager
         PLAYER,
         ENEMY,
     }
-    public MinionType minionType;
+    public MinionType minionType ;
+
+    void OnEnable()
+    {
+        minionType = MinionType.ENEMY;
+    }
     //add to animation event
     //public void Attack(Tower target)
     //{

@@ -33,13 +33,31 @@ public class WizardAIBehaviour : MonoBehaviour
         //agent.isStopped = true;
         targeting = false;
         objectsICareAbout = new List<GameObject>();
-        StartCoroutine(Look());
+        //StartCoroutine(Look());
     }
 
 
     // Update is called once per frame
     private void Update()
     {
+        //if (objectsICareAbout.Count > 0)
+        //{
+        //    List<GameObject> real = new List<GameObject>();
+        //    foreach (var o in objectsICareAbout)
+        //    {
+        //        if (o.GetComponent<MinionBehaviour>().minion.minionType == Minion.MinionType.PLAYER)
+        //            real.Add(o);
+        //    }
+        //    objectsICareAbout.Clear();
+        //    objectsICareAbout.AddRange(real);
+        //    targeting = false;
+        //    attacking = false;
+        //    animator.SetTrigger("targetdead");
+        //    objectsICareAbout.Remove(targetGameObject);
+        //    targetGameObject = null;
+        //    if(objectsICareAbout.Count>0)
+        //        SortByImportance();
+        //}
        // m = targetGameObject.GetComponent<MinionBehaviour>().minion;
         animator.SetFloat("speed", agent.velocity.magnitude);
         if (targetGameObject != null)
@@ -93,7 +111,8 @@ public class WizardAIBehaviour : MonoBehaviour
                 animator.SetTrigger("targetdead");
                 objectsICareAbout.Remove(targetGameObject);
                 targetGameObject = null;
-                StartCoroutine(Look());
+                SortByImportance();
+                //StartCoroutine(Look());
             }
         }
         if (targetGameObject != null && Vector3.Distance(transform.position, targetGameObject.transform.position) > agent.stoppingDistance && targeting)
@@ -125,40 +144,40 @@ public class WizardAIBehaviour : MonoBehaviour
 
     }
 
-    private IEnumerator Look()
-    {
-        //var mask = 1 << 3;
-        while (true)
-        {
-            var hits = new List<RaycastHit>();
-            Quaternion originrot = this.transform.rotation;
-            for (var i = 0f; i < 360; i += 30f)
-            {
-                this.transform.rotation = this.transform.rotation * new Quaternion(0,
-                                              Mathf.Sin(30f / 180f * Mathf.PI) / 2f, 0,
-                                              Mathf.Cos(30f / 180f * Mathf.PI) / 2f);
-                hits.AddRange(Physics
-                    .SphereCastAll(
-                        new Ray(rayOrigin.position - (transform.forward * 30f), transform.forward), 10, 250).ToList());
-            }
+    //private IEnumerator Look()
+    //{
+    //    //var mask = 1 << 3;
+    //    while (true)
+    //    {
+    //        var hits = new List<RaycastHit>();
+    //        Quaternion originrot = this.transform.rotation;
+    //        for (var i = 0f; i < 360; i += 30f)
+    //        {
+    //            this.transform.rotation = this.transform.rotation * new Quaternion(0,
+    //                                          Mathf.Sin(30f / 180f * Mathf.PI) / 2f, 0,
+    //                                          Mathf.Cos(30f / 180f * Mathf.PI) / 2f);
+    //            hits.AddRange(Physics
+    //                .SphereCastAll(
+    //                    new Ray(rayOrigin.position - (transform.forward * 30f), transform.forward), 5, 200).ToList());
+    //        }
 
-            this.transform.rotation = originrot;
+    //        this.transform.rotation = originrot;
 
 
-            foreach (var hit in hits)
-                if (hit.transform != null)
-                {
-                    var v = hit.transform.gameObject.GetComponent<MinionBehaviour>();
+    //        foreach (var hit in hits)
+    //            if (hit.transform != null)
+    //            {
+    //                var v = hit.transform.gameObject.GetComponent<MinionBehaviour>();
 
-                    if (!objectsICareAbout.Contains(hit.transform.gameObject) && v != null && v.minion.minionType == Minion.MinionType.PLAYER)
-                    {
-                        objectsICareAbout.Add(hit.transform.gameObject);
-                    }
-                }
-            SortByImportance();
-            yield return null;
-        }
-    }
+    //                if (!objectsICareAbout.Contains(hit.transform.gameObject) && v != null && v.minion.minionType == Minion.MinionType.PLAYER)
+    //                {
+    //                    objectsICareAbout.Add(hit.transform.gameObject);
+    //                }
+    //            }
+    //        SortByImportance();
+    //        yield return new WaitForSeconds(.5f);
+    //    }
+    //}
 
     private void SortByImportance()
     {
@@ -194,7 +213,7 @@ public class WizardAIBehaviour : MonoBehaviour
         agent.SetDestination(go.transform.position);
         agent.stoppingDistance = 15f;
 
-        StopAllCoroutines();
+        
     }
 
     private class MinionThreat : Minion
@@ -231,5 +250,21 @@ public class WizardAIBehaviour : MonoBehaviour
             var dmgoutlier = (min.damage - dmgavg) / dmgavg;
             return (healtoutlier + dmgoutlier) / 2f;
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.transform != null)
+        {
+            var v = other.transform.gameObject.GetComponent<MinionBehaviour>();
+            if(v == null)
+                return;
+            if (!objectsICareAbout.Contains(other.transform.gameObject) && v.minion != null && v.minion.minionType == Minion.MinionType.PLAYER)
+            {
+                objectsICareAbout.Add(other.transform.gameObject);
+            }
+        }
+        SortByImportance();
     }
 }
