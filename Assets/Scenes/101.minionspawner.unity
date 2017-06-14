@@ -2127,6 +2127,11 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d5f22cd1ae9739a43bcb0f6c964051ce, type: 3}
   m_PrefabInternal: {fileID: 1513208041}
+--- !u!1 &284621014 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1196355645591024, guid: 70888e01ebb33c144835dc3d4d65de12,
+    type: 2}
+  m_PrefabInternal: {fileID: 399319617}
 --- !u!1001 &303354378
 Prefab:
   m_ObjectHideFlags: 0
@@ -10283,6 +10288,7 @@ MonoBehaviour:
   wiz: {fileID: 0}
   crystals: 0
   myTower: {fileID: 1370769709}
+  terrain: {fileID: 284621014}
 --- !u!114 &1473726753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10591,7 +10597,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1515786699}
   m_LocalRotation: {x: -0, y: 0.931043, z: -0.36490947, w: 0}
-  m_LocalPosition: {x: 128.9, y: 49.4, z: 323.6}
+  m_LocalPosition: {x: 128.9, y: 49.4, z: 294.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

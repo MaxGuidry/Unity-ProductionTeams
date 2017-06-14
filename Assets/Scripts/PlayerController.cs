@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     public int crystals;
     private GameObject target;
     public GameObject myTower;
-
+    [SerializeField]
+    private GameObject terrain;
     void Start()
     {
         crystals = 100;
@@ -54,12 +55,29 @@ public class PlayerController : MonoBehaviour
                     target = null;
                 }
             }
-
         }
         else
         {
             anim.SetFloat("speed", agent.velocity.magnitude);
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            agent.stoppingDistance = 1;
+            Camera cam = FindObjectOfType<Camera>();
+            Ray r = cam.ScreenPointToRay(Input.mousePosition);
+            float angleY = Vector3.Angle(r.direction, new Vector3(r.direction.x, 0, r.direction.z));
+            float angleXZ = Vector3.Angle(new Vector3(r.direction.x, 0, r.direction.z), new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z));
+
+            agent.SetDestination(new Vector3(cam.transform.position.x, terrain.transform.position.y + 7.5f, cam.transform.position.z - (((cam.transform.position.y - terrain.transform.position.y) - 7.5f) / Mathf.Tan(angleY * Mathf.Deg2Rad))));
+            //Debug.Log(new Vector3(cam.transform.position.x, terrain.transform.position.y +7.5f, cam.transform.position.z - ((cam.transform.position.y - terrain.transform.position.y) / Mathf.Tan(angleY * Mathf.Deg2Rad))));
+            
+            //Physics.Raycast(r, out hit,100f);
+            //agent.SetDestination(hit.transform.position);
+            //Debug.Log(hit.transform.position);
+            //float angleY = Vector3.Angle(r.direction, new Vector3(r.direction.x, 0, r.direction.z));
+
+        }
+
     }
     private void ShootLeftFireBall()
     {
