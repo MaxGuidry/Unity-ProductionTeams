@@ -62,13 +62,14 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            agent.stoppingDistance = 1;
+            //agent.stoppingDistance = 1;
             Camera cam = FindObjectOfType<Camera>();
             Ray r = cam.ScreenPointToRay(Input.mousePosition);
             float angleY = Vector3.Angle(r.direction, new Vector3(r.direction.x, 0, r.direction.z));
             float angleXZ = Vector3.Angle(new Vector3(r.direction.x, 0, r.direction.z), new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z));
 
             agent.SetDestination(new Vector3(cam.transform.position.x, terrain.transform.position.y + 7.5f, cam.transform.position.z - (((cam.transform.position.y - terrain.transform.position.y) - 7.5f) / Mathf.Tan(angleY * Mathf.Deg2Rad))));
+            this.transform.LookAt(agent.destination);
             //Debug.Log(new Vector3(cam.transform.position.x, terrain.transform.position.y +7.5f, cam.transform.position.z - ((cam.transform.position.y - terrain.transform.position.y) / Mathf.Tan(angleY * Mathf.Deg2Rad))));
             
             //Physics.Raycast(r, out hit,100f);
