@@ -11,42 +11,22 @@ public class FireBallBehaviour : MonoBehaviour
     public GameObject RightHand;
     public int Speed;
 
-    public void ShootLeft()
+    public void ShootLeft(GameObject target)
     {
         var left = (GameObject) Instantiate(Ammo, LeftHand.transform.position, LeftHand.transform.rotation);
         left.GetComponent<Rigidbody>().velocity = (LeftHand.transform.right * -1) * Speed;
         Destroy(left, 2.0f);
+        StartCoroutine(LeftHand.GetComponent<FireballSeek>().seek(target));
     }
 
-    public void ShootRight()
+    public void ShootRight(GameObject target)
     {
         var right = (GameObject)Instantiate(Ammo, RightHand.transform.position, RightHand.transform.rotation);
         right.GetComponent<Rigidbody>().velocity =  (new Quaternion(0, Mathf.Sin((-45f / 180f) * Mathf.PI) / 2f,0,Mathf.Cos((-45f / 180f) * Mathf.PI)/2f) * RightHand.transform.right) * Speed;
         Destroy(right, 2.0f);
+        StartCoroutine(RightHand.GetComponent<FireballSeek>().seek(target));
     }
 
-    public void OnEnter(Collision other)
-    {
-        
-    }
-    private void DamageMinion(Collider other)
-    {
-
-        
-    }
-
-    void Update()
-    {
-    
-     
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShootRight();
-            ShootLeft();
-            Destroy(Ammo, 1.20f);
-        }
-
-    }
 
 }
 
