@@ -14,7 +14,7 @@ public class FireballSeek : MonoBehaviour {
             {
                 this.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity.normalized * 30;
             }
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
 

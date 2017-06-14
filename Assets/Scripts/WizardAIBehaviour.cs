@@ -132,14 +132,14 @@ public class WizardAIBehaviour : MonoBehaviour
         {
             var hits = new List<RaycastHit>();
             Quaternion originrot = this.transform.rotation;
-            for (var i = 0f; i < 360; i += 10f)
+            for (var i = 0f; i < 360; i += 30f)
             {
                 this.transform.rotation = this.transform.rotation * new Quaternion(0,
-                                              Mathf.Sin(10f / 180f * Mathf.PI) / 2f, 0,
-                                              Mathf.Cos(10f / 180f * Mathf.PI) / 2f);
+                                              Mathf.Sin(30f / 180f * Mathf.PI) / 2f, 0,
+                                              Mathf.Cos(30f / 180f * Mathf.PI) / 2f);
                 hits.AddRange(Physics
                     .SphereCastAll(
-                        new Ray(rayOrigin.position - (transform.forward * 2f), transform.forward), 3, 100).ToList());
+                        new Ray(rayOrigin.position - (transform.forward * 30f), transform.forward), 10, 250).ToList());
             }
 
             this.transform.rotation = originrot;

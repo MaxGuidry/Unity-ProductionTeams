@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        crystals =100;
+        crystals = 100;
         agent = GetComponent<NavMeshAgent>();
         wiz = ScriptableObject.CreateInstance<Wizard>();
         wiz.damage = 10;
@@ -27,32 +27,39 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targeting)
+        if (target != null)
         {
-            this.transform.LookAt(new Vector3(target.transform.position.x, 6f, target.transform.position.z));
-
-            anim.SetFloat("speed", agent.velocity.magnitude);
-            agent.isStopped = false;
-            agent.SetDestination(target.transform.position);
-            agent.stoppingDistance = 8;
-        }
-        if (targeting && Vector3.Distance(this.transform.position, target.transform.position) < 10)
-        {
-            anim.SetTrigger("attack");
-            attacking = true;
-        }
-        if (attacking)
-        {
-            if (target.GetComponent<MinionBehaviour>().minion.health <= 0)
+            if (targeting)
             {
-                crystals += target.GetComponent<MinionBehaviour>().minion.damage * 5;   
-                anim.SetTrigger("targetdead");
-                targeting = false;
-                attacking = false;
+                this.transform.LookAt(new Vector3(target.transform.position.x, 6f, target.transform.position.z));
+                if (!attacking)
+                    anim.SetFloat("speed", agent.velocity.magnitude);
+                agent.isStopped = false;
+                agent.SetDestination(target.transform.position);
+                agent.stoppingDistance = 15;
             }
+            if (targeting && Vector3.Distance(this.transform.position, target.transform.position) < 30 && !attacking)
+            {
+                anim.SetTrigger("attack");
+                attacking = true;
+            }
+            if (attacking)
+            {
+                if (target.GetComponent<MinionBehaviour>().minion.health <= 0)
+                {
+                    crystals += target.GetComponent<MinionBehaviour>().minion.damage * 5;
+                    anim.SetTrigger("targetdead");
+                    targeting = false;
+                    attacking = false;
+                    target = null;
+                }
+            }
+
         }
-
-
+        else
+        {
+            anim.SetFloat("speed", agent.velocity.magnitude);
+        }
     }
     private void ShootLeftFireBall()
     {
@@ -78,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         if (crystals >= 50)
         {
-            var spawners = GetComponentsInChildren<MinionSpawner>().ToList();
+            var spawners = myTower.GetComponentsInChildren<MinionSpawner>().ToList();
 
             if (Time.time < 200)
             {
@@ -115,6 +122,7 @@ public class PlayerController : MonoBehaviour
                 spawners[0].Spawn(Random.Range(280, 351), Random.Range(35, 51));
                 spawners[1].Spawn(Random.Range(280, 351), Random.Range(35, 51));
             }
+            crystals -= 50;
         }
         else
         {
