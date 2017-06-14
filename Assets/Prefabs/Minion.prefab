@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 114377030830879922}
   - component: {fileID: 195729583047144596}
   - component: {fileID: 136302776798890470}
+  - component: {fileID: 54006983195831862}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Untagged
@@ -1275,6 +1276,21 @@ Transform:
   m_Father: {fileID: 4203350802444254}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54006983195831862
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274469347296776}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!95 &95636372745827818
 Animator:
   serializedVersion: 3
@@ -1316,7 +1332,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1274469347296776}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1.6489553
   m_Direction: 1

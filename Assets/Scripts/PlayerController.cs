@@ -1,51 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Linq;
+
 public class PlayerController : MonoBehaviour
 {
-    public Animator anim;
     private NavMeshAgent agent;
-    [HideInInspector]
-    public Wizard wiz;
-    private bool attacking = false;
-    private bool targeting = false;
+    public Animator anim;
+    private bool attacking;
     public int crystals;
-    private GameObject target;
     public GameObject myTower;
-    [SerializeField]
-    private GameObject terrain;
-    void Start()
+    private GameObject target;
+    private bool targeting;
+
+    [SerializeField] private GameObject terrain;
+
+    [HideInInspector] public Wizard wiz;
+
+    private void Start()
     {
         crystals = 100;
         agent = GetComponent<NavMeshAgent>();
         wiz = ScriptableObject.CreateInstance<Wizard>();
-        wiz.damage = 10;
+        wiz.damage = 12;
         anim = GetComponent<Animator>();
     }
 
+    private Vector3 dest;
+
+    private float x1;
+
+    private float z1;
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+
         if (target != null)
         {
             if (targeting)
             {
-                this.transform.LookAt(new Vector3(target.transform.position.x, 6f, target.transform.position.z));
+                transform.LookAt(new Vector3(target.transform.position.x, 6f, target.transform.position.z));
                 if (!attacking)
                     anim.SetFloat("speed", agent.velocity.magnitude);
                 agent.isStopped = false;
                 agent.SetDestination(target.transform.position);
                 agent.stoppingDistance = 15;
             }
-            if (targeting && Vector3.Distance(this.transform.position, target.transform.position) < 30 && !attacking)
+            if (targeting && Vector3.Distance(transform.position, target.transform.position) < 30 && !attacking)
             {
                 anim.SetTrigger("attack");
                 attacking = true;
             }
             if (attacking)
-            {
                 if (target.GetComponent<MinionBehaviour>().minion.health <= 0)
                 {
                     crystals += target.GetComponent<MinionBehaviour>().minion.damage * 5;
@@ -54,44 +59,57 @@ public class PlayerController : MonoBehaviour
                     attacking = false;
                     target = null;
                 }
-            }
         }
         else
         {
             anim.SetFloat("speed", agent.velocity.magnitude);
         }
+        
         if (Input.GetMouseButtonDown(0))
         {
             //agent.stoppingDistance = 1;
-            Camera cam = FindObjectOfType<Camera>();
-            Ray r = cam.ScreenPointToRay(Input.mousePosition);
-            float angleY = Vector3.Angle(r.direction, new Vector3(r.direction.x, 0, r.direction.z));
-            float angleXZ = Vector3.Angle(new Vector3(r.direction.x, 0, r.direction.z), new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z));
+            var cam = Camera.main;
+            //var r = cam.ScreenPointToRay(Input.mousePosition);
 
-            agent.SetDestination(new Vector3(cam.transform.position.x, terrain.transform.position.y + 7.5f, cam.transform.position.z - (((cam.transform.position.y - terrain.transform.position.y) - 7.5f) / Mathf.Tan(angleY * Mathf.Deg2Rad))));
-            this.transform.LookAt(agent.destination);
-            //Debug.Log(new Vector3(cam.transform.position.x, terrain.transform.position.y +7.5f, cam.transform.position.z - ((cam.transform.position.y - terrain.transform.position.y) / Mathf.Tan(angleY * Mathf.Deg2Rad))));
-            
-            //Physics.Raycast(r, out hit,100f);
-            //agent.SetDestination(hit.transform.position);
-            //Debug.Log(hit.transform.position);
-            //float angleY = Vector3.Angle(r.direction, new Vector3(r.direction.x, 0, r.direction.z));
+            var screenToWorld = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(screenToWorld, out hit))
+            {
+                dest = hit.point;
+                agent.SetDestination(dest);
+            }
+
+            //var angleYZ = Vector3.Angle(r.direction, cam.transform.forward);
+            //var angleXZ = Vector3.Angle(r.direction, cam.transform.right);
+            //new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z));
+
+
+
+            //var x = cam.transform.position.x + (cam.transform.position.y - terrain.transform.position.y - 7.5f) *
+            //        Mathf.Tan(angleXZ * Mathf.Deg2Rad);
+
+            //var z = cam.transform.position.z - (cam.transform.position.y - terrain.transform.position.y - 7.5f) /
+            //        Mathf.Tan(angleYZ * Mathf.Deg2Rad);
+
+            //agent.SetDestination(new Vector3(x, terrain.transform.position.y + 7.5f, z));
+
+            //this.transform.LookAt(agent.destination);
+            transform.LookAt(dest);
+
+
 
         }
-
+        
     }
+
     private void ShootLeftFireBall()
     {
-
         GetComponent<MaxFireBall>().ShootLeft(target);
-
-
     }
 
     private void ShootRightFireBall()
     {
         GetComponent<MaxFireBall>().ShootRight(target);
-
     }
 
     public void Target(GameObject go)
@@ -100,6 +118,7 @@ public class PlayerController : MonoBehaviour
         agent.SetDestination(go.transform.position);
         targeting = true;
     }
+
     public void SpawnMinion()
     {
         if (crystals >= 50)
@@ -131,8 +150,6 @@ public class PlayerController : MonoBehaviour
             //add boss minions 
             else if (Time.time < 1200)
             {
-
-
                 spawners[0].Spawn(Random.Range(240, 276), Random.Range(24, 41));
                 spawners[1].Spawn(Random.Range(240, 276), Random.Range(24, 41));
             }
@@ -142,10 +159,6 @@ public class PlayerController : MonoBehaviour
                 spawners[1].Spawn(Random.Range(280, 351), Random.Range(35, 51));
             }
             crystals -= 50;
-        }
-        else
-        {
-            //do a thing
         }
     }
 }
