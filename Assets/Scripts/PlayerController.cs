@@ -8,13 +8,12 @@ public class PlayerController : MonoBehaviour
     private NavMeshAgent agent;
     public Animator anim;
     private bool attacking;
-    [HideInInspector]
     public int crystals;
     public GameObject myTower;
     private GameObject target;
     private bool targeting;
 
-
+    public ParticleSystem ParticleSystem;
     private float exp;
     private float expToNext;
     private int level;
@@ -69,6 +68,7 @@ public class PlayerController : MonoBehaviour
             if (attacking)
                 if (target.GetComponent<MinionBehaviour>().minion.health <= 0)
                 {
+                    exp += target.GetComponent<MinionBehaviour>().minion.damage * 5;
                     crystals += target.GetComponent<MinionBehaviour>().minion.damage * 5;
                     anim.SetTrigger("targetdead");
                     targeting = false;
@@ -182,6 +182,7 @@ public class PlayerController : MonoBehaviour
     public void LevelUp()
     {
         level++;
+        ParticleSystem.Play();
         wiz.damage += 6;
         exp = 0;
         expToNext = 100 * level;

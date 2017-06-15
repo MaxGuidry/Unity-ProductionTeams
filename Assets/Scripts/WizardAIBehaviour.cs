@@ -20,15 +20,22 @@ public class WizardAIBehaviour : MonoBehaviour
     public Wizard wizard;
     private GameObject toRemove;
 
-
+    private float exp;
+    private float expToNext;
+    private int level;
 
 
     //The following variables and functions are incase I cant use dylans stuff
     private void Start()
     {
+        Time.timeScale = 1;
+        exp = 0;
+        level = 1;
+        expToNext = 100 * level;
+
         animator = GetComponent<Animator>();
         wizard = ScriptableObject.CreateInstance<Wizard>();
-        wizard.damage = 10;
+        wizard.damage = 15;
         attacking = false;
         agent = GetComponent<NavMeshAgent>();
         //agent.isStopped = true;
@@ -41,6 +48,11 @@ public class WizardAIBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
+        if (exp >= expToNext)
+        {
+            LevelUp();
+        }
         //if (objectsICareAbout.Count > 0)
         //{
         //    List<GameObject> real = new List<GameObject>();
@@ -59,7 +71,7 @@ public class WizardAIBehaviour : MonoBehaviour
         //    if(objectsICareAbout.Count>0)
         //        SortByImportance();
         //}
-       // m = targetGameObject.GetComponent<MinionBehaviour>().minion;
+        // m = targetGameObject.GetComponent<MinionBehaviour>().minion;
         animator.SetFloat("speed", agent.velocity.magnitude);
         if (targetGameObject != null)
         {
@@ -107,19 +119,32 @@ public class WizardAIBehaviour : MonoBehaviour
 
             if (targetGameObject.GetComponent<MinionBehaviour>().minion.health <= 0)
             {
+                exp += targetGameObject.GetComponent<MinionBehaviour>().minion.damage * 5;
                 targeting = false;
                 attacking = false;
                 animator.SetTrigger("targetdead");
                 objectsICareAbout.Remove(targetGameObject);
                 targetGameObject = null;
+                List<GameObject> toremove = new List<GameObject>();
+                foreach (var o in objectsICareAbout)
+                {
+                    if (o == null)
+                        toremove.Add(o);
+                }
+                foreach (var o in toremove)
+                {
+                    objectsICareAbout.Remove(o);
+                }
+                
+
                 SortByImportance();
                 //StartCoroutine(Look());
             }
         }
-        else if(targetGameObject == null)
+        else if (targetGameObject == null)
         {
             agent.SetDestination(GameObject.FindGameObjectWithTag("Enemy Tower").transform.position);
-                }
+        }
         if (targetGameObject != null && Vector3.Distance(transform.position, targetGameObject.transform.position) > agent.stoppingDistance && targeting)
         {
             agent.isStopped = false;
@@ -212,13 +237,13 @@ public class WizardAIBehaviour : MonoBehaviour
     private void Target(GameObject go)
     {
         targetGameObject = go;
-     
+
         targeting = true;
         //agent.isStopped = false;
         agent.SetDestination(go.transform.position);
         agent.stoppingDistance = 15f;
 
-        
+
     }
 
     private class MinionThreat : Minion
@@ -259,17 +284,25 @@ public class WizardAIBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.transform != null)
         {
             var v = other.transform.gameObject.GetComponent<MinionBehaviour>();
-            if(v == null)
+            if (v == null)
                 return;
             if (!objectsICareAbout.Contains(other.transform.gameObject) && v.minion != null && v.minion.minionType == Minion.MinionType.PLAYER)
             {
                 objectsICareAbout.Add(other.transform.gameObject);
             }
         }
-        SortByImportance();
+        if (objectsICareAbout.Count > 0 && !targeting)
+            SortByImportance();
+    }
+    public void LevelUp()
+    {
+        level++;
+        wizard.damage += 6;
+        exp = 0;
+        expToNext = 100 * level;
     }
 }
