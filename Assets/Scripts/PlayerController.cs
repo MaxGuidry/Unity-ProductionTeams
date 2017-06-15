@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         crystals = 100;
         agent = GetComponent<NavMeshAgent>();
         wiz = ScriptableObject.CreateInstance<Wizard>();
-        wiz.damage = 12;
+        wiz.damage = 15;
         anim = GetComponent<Animator>();
     }
 
