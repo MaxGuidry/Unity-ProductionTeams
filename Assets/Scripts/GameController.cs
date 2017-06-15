@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject enemyTower;
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         {
             Unpause();
         }
-        if (enemyTower.GetComponent<TowerBehaviour>().tower.health <= 0)
+        if (enemyTower.GetComponent<TowerBehaviour>().tower.health <= 0 && !gameOver)
         {
             Win();
         }
@@ -45,18 +45,24 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0;
         paused = true;
-        pauseMenu.enabled = true;
+        pauseMenu.gameObject.SetActive(true);
     }
     public void Unpause()
     {
         Time.timeScale = 1;
         paused = false;
-        pauseMenu.enabled = false;
+        pauseMenu.gameObject.SetActive(false);
     }
     public void Lose()
     {
-        GameOverMenu.enabled = true;
+        gameOver = true;
+        GameOverMenu.gameObject.SetActive(true);
         var minions = FindObjectsOfType<MinionBehaviour>().ToList();
+        var spawners = FindObjectsOfType<MinionSpawner>().ToList();
+        foreach (var minionSpawner in spawners)
+        {
+            minionSpawner.enabled = false;
+        }
         foreach (var min in minions)
         {
             if (min.minion.minionType == Minion.MinionType.PLAYER)
@@ -67,8 +73,14 @@ public class GameController : MonoBehaviour
     }
     public void Win()
     {
-        GameOverMenu.enabled = true;
+        gameOver = true;
+        GameOverMenu.gameObject.SetActive(true);
         var minions = FindObjectsOfType<MinionBehaviour>().ToList();
+        var spawners = FindObjectsOfType<MinionSpawner>().ToList();
+        foreach (var minionSpawner in spawners)
+        {
+            minionSpawner.enabled = false;
+        }
         foreach (var min in minions)
         {
             if (min.minion.minionType == Minion.MinionType.ENEMY)
@@ -78,5 +90,13 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("101.mainmenu");
+    }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene("101.minionspawner");
+    }
 }

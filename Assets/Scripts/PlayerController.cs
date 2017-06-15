@@ -1,23 +1,36 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private NavMeshAgent agent;
     public Animator anim;
     private bool attacking;
+    [HideInInspector]
     public int crystals;
     public GameObject myTower;
     private GameObject target;
     private bool targeting;
 
-    [SerializeField] private GameObject terrain;
 
-    [HideInInspector] public Wizard wiz;
+    private float exp;
+    private float expToNext;
+    private int level;
+    [SerializeField]
+    private GameObject terrain;
+
+    public Text CrystalText;
+    [HideInInspector]
+    public Wizard wiz;
 
     private void Start()
     {
+        exp = 0;
+        level = 1;
+        expToNext = 100 * level;
+
         crystals = 100;
         agent = GetComponent<NavMeshAgent>();
         wiz = ScriptableObject.CreateInstance<Wizard>();
@@ -27,12 +40,15 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 dest;
 
-    private float x1;
 
-    private float z1;
     // Update is called once per frame
     private void Update()
     {
+
+        if (exp >= expToNext)
+        {
+            LevelUp();
+        }
 
         if (target != null)
         {
@@ -64,8 +80,8 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetFloat("speed", agent.velocity.magnitude);
         }
-        
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(1))
         {
             //agent.stoppingDistance = 1;
             var cam = Camera.main;
@@ -99,7 +115,8 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        
+        CrystalText.text = crystals.ToString() + " Crystals left";
+
     }
 
     private void ShootLeftFireBall()
@@ -160,5 +177,12 @@ public class PlayerController : MonoBehaviour
             }
             crystals -= 50;
         }
+    }
+
+    public void LevelUp()
+    {
+        level++;
+        exp = 0;
+        expToNext = 100 * level;
     }
 }
