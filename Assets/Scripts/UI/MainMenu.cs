@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Instructions()
     {
-        InstructionsText.text = "Left Click- Left click on any minion to attack it!!" +"\n" + "Right Click- Right click anywhere on the map to move there!!" + "\n" + "W,S,A,D- This will allow the player to navigate through the map!!";
+        InstructionsText.text = "<b>Left Click</b>- Attack any minion!!" +"\n" + "<b>Right Click</b>- Right click anywhere on the map to move there or buy more troops!!" + "\n" + "<b> W,S,A,D</b>- This will allow the player to navigate through the map!!";
         
     }
     public void Credits()
