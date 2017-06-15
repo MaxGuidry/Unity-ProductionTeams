@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         crystals = 100;
         agent = GetComponent<NavMeshAgent>();
         wiz = ScriptableObject.CreateInstance<Wizard>();
-        wiz.damage = 15;
+        wiz.damage = 9;
         anim = GetComponent<Animator>();
     }
 
@@ -182,6 +182,7 @@ public class PlayerController : MonoBehaviour
     public void LevelUp()
     {
         level++;
+        wiz.damage += 6;
         exp = 0;
         expToNext = 100 * level;
     }

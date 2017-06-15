@@ -11375,6 +11375,7 @@ GameObject:
   - component: {fileID: 1515786700}
   - component: {fileID: 1515786705}
   - component: {fileID: 1515786706}
+  - component: {fileID: 1515786707}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11477,6 +11478,18 @@ MonoBehaviour:
   m_EventMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1515786707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515786699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 6741c3a37e18e1b4085076a8266c94a9, type: 2}
 --- !u!4 &1523320308 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d5f22cd1ae9739a43bcb0f6c964051ce, type: 3}
@@ -14912,6 +14925,26 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SpawnMinion
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501311300277500, guid: a8b3740176653204ea52987784ee98cf,
+        type: 2}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136957298799048, guid: a8b3740176653204ea52987784ee98cf,
+        type: 2}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224491531327803240, guid: a8b3740176653204ea52987784ee98cf,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136957298799048, guid: a8b3740176653204ea52987784ee98cf,
+        type: 2}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8b3740176653204ea52987784ee98cf, type: 2}
