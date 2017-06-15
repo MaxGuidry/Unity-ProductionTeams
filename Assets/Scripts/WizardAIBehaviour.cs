@@ -28,6 +28,7 @@ public class WizardAIBehaviour : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         wizard = ScriptableObject.CreateInstance<Wizard>();
+        wizard.damage = 10;
         attacking = false;
         agent = GetComponent<NavMeshAgent>();
         //agent.isStopped = true;
@@ -115,6 +116,10 @@ public class WizardAIBehaviour : MonoBehaviour
                 //StartCoroutine(Look());
             }
         }
+        else if(targetGameObject == null)
+        {
+            agent.SetDestination(GameObject.FindGameObjectWithTag("Enemy Tower").transform.position);
+                }
         if (targetGameObject != null && Vector3.Distance(transform.position, targetGameObject.transform.position) > agent.stoppingDistance && targeting)
         {
             agent.isStopped = false;

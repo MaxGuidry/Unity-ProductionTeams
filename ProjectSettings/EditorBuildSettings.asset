@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/101.minionspawner.unity
     guid: d65b94826d65dfb4e81ce7e8709e57d9
+  - enabled: 1
+    path: Assets/Scenes/101.mainmenu.unity
+    guid: d17d531a948f8044db9dbf10ac3c62cb
