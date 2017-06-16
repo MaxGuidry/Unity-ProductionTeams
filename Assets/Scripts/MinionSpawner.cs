@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class MinionSpawner : MonoBehaviour
@@ -35,19 +34,19 @@ public class MinionSpawner : MonoBehaviour
 
 
 
-            if (Time.time < 200)
-            {
-
-                Spawn(100, 5);
-                SpawnCooldown = 20;
-            }
-            else if (Time.time < 400)
+            if (Time.time < 100)
             {
 
                 Spawn(125, 7);
+                SpawnCooldown = 20;
+            }
+            else if (Time.time < 250)
+            {
+
+                Spawn(150, 10);
                 SpawnCooldown = 15;
             }
-            else if (Time.time > 400 && Time.time < 430)
+            else if (Time.time > 350 && Time.time < 370)
             {
                 //Harder minions
 
@@ -55,10 +54,10 @@ public class MinionSpawner : MonoBehaviour
 
                 SpawnCooldown = 45;
             }
-            else if (Time.time < 700)
+            else if (Time.time < 475)
             {
 
-                Spawn(200, 20);
+                Spawn(250, 25);
 
                 SpawnCooldown = 10;
             }
@@ -66,7 +65,7 @@ public class MinionSpawner : MonoBehaviour
             else if (Time.time < 1200)
             {
 
-                Spawn(250, 30);
+                Spawn(400, 50);
 
                 SpawnCooldown = 7;
             }
