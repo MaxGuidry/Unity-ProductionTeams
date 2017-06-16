@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject playerTower;
     public Canvas pauseMenu;
     public Canvas GameOverMenu;
+    public Text winlose;
     private bool paused;
     private bool gameOver;
     // Use this for initialization
@@ -55,6 +57,7 @@ public class GameController : MonoBehaviour
     }
     public void Lose()
     {
+        winlose.text = "<b>You Lose</b>";
         gameOver = true;
         GameOverMenu.gameObject.SetActive(true);
         var minions = FindObjectsOfType<MinionBehaviour>().ToList();
@@ -73,6 +76,7 @@ public class GameController : MonoBehaviour
     }
     public void Win()
     {
+        winlose.text = "<b>You Win</b>";
         gameOver = true;
         GameOverMenu.gameObject.SetActive(true);
         var minions = FindObjectsOfType<MinionBehaviour>().ToList();
